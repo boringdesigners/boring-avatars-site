@@ -35,16 +35,26 @@ const ColorsSection = styled.div`
 
 const AvatarsGrid = styled.div`
   display: grid;
-  grid-gap: var(--sp-l) var(--sp-s);
+  grid-gap: var(--sp-s);
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   padding: var(--pagePadding);
 `
 
+
+const ButtonSection = styled.div`
+  display: grid;
+  place-items: center;
+  opacity: 0;
+`
+
 const AvatarContainer = styled.div`
   display: grid;
-  grid-gap: var(--sp-s);
   padding: 0 var(--sp-m);
   font-size: 0.8rem;
+
+  &:hover ${ButtonSection} {
+    opacity: 1;
+  }
 `
 
 const AvatarSection = styled.div`
@@ -63,6 +73,7 @@ const Input = styled.input`
   text-align: center;
   border-radius: 100rem;
   background: transparent;
+  margin-top: var(--sp-s);
 
   &:hover {
     border-color: var(--c-fieldHover);
@@ -107,9 +118,30 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
         onChange={e => setAvatarName(e.target.value)}
         onFocus={(e) => handleFocus(e)}
       />
-      <CopyToClipboard text={copyValue}>
-        <Button>Copy</Button>
-      </CopyToClipboard>
+      <ButtonSection>
+        <CopyToClipboard text={copyValue}>
+          <Button
+            icon={
+              <svg width={16} height={16} fill="none">
+                <rect
+                  x={5}
+                  y={5}
+                  width={10}
+                  height={10}
+                  rx={2}
+                  stroke="currentColor"
+                  strokeWidth={2}
+                />
+                <path
+                  d="M11 3v0a2 2 0 00-2-2H3a2 2 0 00-2 2v6a2 2 0 002 2v0"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                />
+              </svg>
+            }
+          />
+        </CopyToClipboard>
+      </ButtonSection>
     </AvatarContainer>
   )
 }
