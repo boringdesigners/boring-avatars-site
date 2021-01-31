@@ -7,6 +7,7 @@ const SegmentGroupWrapper = styled.div`
   padding: 0.2rem;
   border-radius: 10rem;
   display: inline-flex;
+  ${p => p.width && `width: ${p.width}`};
 `
 
 const SegmentWrapper = styled(Button)`
@@ -16,15 +17,16 @@ const SegmentWrapper = styled(Button)`
 
   ${p => p.isSelected && `background-color: var(--c-background)`};
   ${p => !p.isSelected && `color: var(--c-fade)`};
+  width: 100%;
 `
 
-export const SegmentGroup = ({ children }) => {
+export const SegmentGroup = ({ children, width }) => {
   return (
-    <SegmentGroupWrapper>{children}</SegmentGroupWrapper>
+    <SegmentGroupWrapper width={width}>{children}</SegmentGroupWrapper>
   )
 }
 
-const Segment = ({ children, isSelected, ...props }) => {
+const Segment = ({ children, isSelected, hasFullWidth, ...props }) => {
   return (
     <SegmentWrapper isSelected={isSelected} {...props}>{children}</SegmentWrapper>
   )

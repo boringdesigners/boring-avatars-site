@@ -5,15 +5,21 @@ import colors from 'nice-color-palettes'
 import { exampleNames } from './example-names'
 import Avatar from 'boring-avatars'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { useMedia } from './hooks'
 
 const paletteColors = colors
 
 const Header = styled.header`
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto auto;
+  grid-template-columns: auto 1fr auto;
   padding: var(--pagePadding);
   align-items: center;
   grid-gap: var(--sp-s);
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    background-color: var(--c-backgroundAlt);
+  }
 `
 
 const ColorsSection = styled.div`
@@ -21,6 +27,10 @@ const ColorsSection = styled.div`
   grid-template-columns: repeat(5, 1fr);
   max-width: max-content;
   grid-gap: var(--sp-xs);
+  
+  @media (max-width: 800px) {
+    grid-column: 0/1;
+  }
 `
 
 const AvatarsGrid = styled.div`
@@ -128,6 +138,29 @@ const Dot = styled.div`
   border-radius: 10rem;
 `
 
+const PalleteSection = styled.div`
+  display: grid;
+  grid-gap: var(--sp-s);
+  grid-template-columns: 1fr auto;
+
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+`
+
+const SizeSection = styled.div`
+  display: grid;
+  grid-gap: var(--sp-s);
+  align-items: center;
+  grid-template-columns: auto auto;
+
+  @media (max-width: 800px) {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+`
+
 const SizeDot = ({size, isSelected, ...props}) => {
   const getSize = () => {
     switch(size) {
@@ -181,43 +214,52 @@ const Playground = () => {
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
   const [variant, setVariant] = useState(variants.geometric)
 
+  const variantWidth = useMedia(
+    ['(max-width: 800px)', '(min-width: 800px)'],
+    ['100%', 'auto'],
+    'auto'
+  );
+
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
-        <SegmentGroup>
+        <SegmentGroup width={variantWidth}>
           <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
           <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
         </SegmentGroup>
-        <ColorsSection>
-          <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
-          <ColorDot value={dotColor1} onChange={(color) => setDotColor1(color)} />
-          <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
-          <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
-          <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
-        </ColorsSection>
-
-        <Button onClick={() => handleRandomColors()}>Random palette</Button>
-        <SegmentGroup>
-          {Object.entries(avatarSizes).map(([key, value], index) => (
-            <SizeDot
+        <PalleteSection>
+          <ColorsSection>
+            <ColorDot value={dotColor0} onChange={(color) => setDotColor0(color)} />
+            <ColorDot value={dotColor1} onChange={(color) => setDotColor1(color)} />
+            <ColorDot value={dotColor2} onChange={(color) => setDotColor2(color)} />
+            <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
+            <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
+          </ColorsSection>
+          <Button onClick={() => handleRandomColors()}>Random palette</Button>
+        </PalleteSection>
+        <SizeSection>
+          <SegmentGroup>
+            {Object.entries(avatarSizes).map(([key, value], index) => (
+              <SizeDot
               key={index}
               onClick={() => setAvatarSize(value)}
               isSelected={value === avatarSize}
               size={value}
-            />
-          ))}
-        </SegmentGroup>
+              />
+              ))}
+          </SegmentGroup>
 
-        <Button
-          onClick={() => setDarkMode(!darkMode)}
-          icon={
-            <svg width={20} height={20} fill="none">
-              <circle cx={10} cy={10} r={9} stroke="currentColor" strokeWidth={2} />
-              <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />
-            </svg>
-          }
-        />
+          <Button
+            onClick={() => setDarkMode(!darkMode)}
+            icon={
+              <svg width={20} height={20} fill="none">
+                <circle cx={10} cy={10} r={9} stroke="currentColor" strokeWidth={2} />
+                <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />
+              </svg>
+            }
+          />
+        </SizeSection>
       </Header>
       <AvatarsGrid>
         {exampleNames.map((exampleName, name) => (

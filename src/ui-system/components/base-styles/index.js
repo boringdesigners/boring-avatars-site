@@ -11,7 +11,7 @@ const cssVariables = css`
   --textbox-y: 0.4rem;
   --textbox: 0.4rem 1rem;
 
-  --pagePadding: var(--sp-xl);
+  --pagePadding: calc(var(--sp-s) + 2vw);
   
   --buttonHeight: 1.8rem;
 
@@ -22,6 +22,7 @@ const cssVariables = css`
   --c-button: hsla(0,0%,0%,0.1);
   --c-buttonHover: hsla(0,0%,0%,0.2);
   --c-fade: hsla(0,0%,0%,0.4);
+  --c-backgroundAlt: hsla(0,0%,0%,0.07);
 
   ${p => p.darkMode && css`
     --c-fieldHover: hsla(0,0%,100%,0.15);
@@ -31,6 +32,7 @@ const cssVariables = css`
     --c-button: hsla(0,0%,100%,0.1);
     --c-buttonHover: hsla(0,0%,100%,0.2);
     --c-fade: hsla(0,0%,100%,0.4);
+    --c-backgroundAlt: hsla(0,0%,100%,0.07);
   `};
 `
 
