@@ -219,13 +219,19 @@ const Playground = () => {
     ['100%', 'auto'],
     'auto'
   );
+  
+  const randomLabel = useMedia(
+    ['(max-width: 800px)', '(min-width: 800px)'],
+    ['Random', 'Random palette'],
+    'Random'
+  );
 
   return (
     <>
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup width={variantWidth}>
-          <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Geometric</Segment>
+          <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Assface</Segment>
           <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
         </SegmentGroup>
         <PalleteSection>
@@ -236,7 +242,7 @@ const Playground = () => {
             <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
             <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
           </ColorsSection>
-          <Button onClick={() => handleRandomColors()}>Random palette</Button>
+          <Button onClick={() => handleRandomColors()}>{randomLabel}</Button>
         </PalleteSection>
         <SizeSection>
           <SegmentGroup>
