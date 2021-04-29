@@ -40,7 +40,6 @@ const AvatarsGrid = styled.div`
   padding: var(--pagePadding);
 `
 
-
 const ButtonSection = styled.div`
   display: grid;
   place-items: center;
@@ -214,6 +213,8 @@ const SizeDot = ({size, isSelected, ...props}) => {
 const variants = {
   geometric: 'geometric',
   abstract: 'abstract',
+  marble: 'marble',
+  beam: 'beam'
 }
 
 const Playground = () => {
@@ -263,8 +264,9 @@ const Playground = () => {
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup width={variantWidth}>
-          <Segment onClick={() => setVariant(variants.geometric)} isSelected={variant === variants.geometric}>Assface</Segment>
-          <Segment onClick={() => setVariant(variants.abstract)} isSelected={variant === variants.abstract}>Abstract</Segment>
+          {Object.keys(variants).map((variantItem) => (
+            <Segment onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
+          ))}
         </SegmentGroup>
         <PalleteSection>
           <ColorsSection>
@@ -280,12 +282,12 @@ const Playground = () => {
           <SegmentGroup>
             {Object.entries(avatarSizes).map(([key, value], index) => (
               <SizeDot
-              key={index}
-              onClick={() => setAvatarSize(value)}
-              isSelected={value === avatarSize}
-              size={value}
+                key={index}
+                onClick={() => setAvatarSize(value)}
+                isSelected={value === avatarSize}
+                size={value}
               />
-              ))}
+            ))}
           </SegmentGroup>
 
           <Button
