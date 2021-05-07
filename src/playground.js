@@ -206,14 +206,14 @@ const SizeDot = ({size, isSelected, ...props}) => {
 }
 
 const variants = {
+  marble: 'marble',
   geometric: 'geometric',
   abstract: 'abstract',
-  marble: 'marble',
   beam: 'beam'
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[66]
+  const defaultPlaygroundColors = paletteColors[81]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
@@ -230,7 +230,6 @@ const Playground = () => {
       paletteColors[getRandomPaletteIndex()]
     )
   }
-
   useEffect(() => {
     setDotColor0(playgroundColors[0])
     setDotColor1(playgroundColors[1])
@@ -239,8 +238,8 @@ const Playground = () => {
     setDotColor4(playgroundColors[4])
   }, [playgroundColors])
 
-  const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.geometric)
+  const [avatarSize, setAvatarSize] = useState(avatarSizes.large)
+  const [variant, setVariant] = useState(variants.marble)
 
   const variantWidth = useMedia(
     ['(max-width: 800px)', '(min-width: 800px)'],
