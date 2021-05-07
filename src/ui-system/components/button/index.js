@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.button`
   appearance: none;
   font: inherit;
   color: inherit;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
