@@ -1,12 +1,11 @@
 export const exampleNames = [
   `Chibuike`,
   `浅越 康郎`,
-  `Margarit`,
+  `Amelia`,
   `和崎 早咲`,
   `Юрий`,
   `ปรีชา`,
   `Akseli`,
-  `أبو الفضل`,
   `Britta`,
   `Paŭlo`,
   `Օհաննես`,
@@ -23,6 +22,5 @@ export const exampleNames = [
   `Kaipo`,
   `Богдан`,
   `Mao`,
-  `Eduardo`,
   `Σεραφείμ`,
 ]

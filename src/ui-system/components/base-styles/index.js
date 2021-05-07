@@ -12,13 +12,14 @@ const cssVariables = css`
   --textbox: 0.4rem 1rem;
 
   --pagePadding: calc(var(--sp-s) + 2vw);
-  
+
   --buttonHeight: 1.8rem;
 
   --c-fieldHover: hsla(0,0%,0%,0.15);
   --c-fieldFocus: hsla(0,0%,0%,0.3);
   --c-background: hsl(0,0%,100%);
   --c-body: hsl(0,0%,20%);
+  --c-body-secondary: hsl(0,0%,60%);
   --c-button: hsla(0,0%,0%,0.1);
   --c-buttonHover: hsla(0,0%,0%,0.2);
   --c-fade: hsla(0,0%,0%,0.4);
@@ -48,6 +49,10 @@ const BaseStyles = createGlobalStyle`
   body {
     background-color: var(--c-background);
     color: var(--c-body);
+  }
+
+  a {
+    text-decoration: none;
   }
 `
 

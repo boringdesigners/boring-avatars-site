@@ -22,12 +22,16 @@ const Header = styled.header`
   }
 `
 
+const Footer = styled.footer`
+  padding: 0 var(--pagePadding) var(--sp-m);
+`
+
 const ColorsSection = styled.div`
   display: inline-grid;
   grid-template-columns: repeat(5, 1fr);
   max-width: max-content;
   grid-gap: var(--sp-xs);
-  
+
   @media (max-width: 800px) {
     grid-column: 0/1;
   }
@@ -90,14 +94,14 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
   const handleFocus = (event) => event.target.select()
   const ref = useRef();
   const [copyValue, setCopyValue] = useState(name)
-  
+
   useEffect(() => {
     if(ref.current) {
       const svgNode = ref.current.innerHTML
       const svgStart = svgNode.indexOf('<svg')
       const svgEnd = svgNode.indexOf('</svg>') + 6
       const svgResult = svgNode.substring(svgStart, svgEnd).toString()
-      
+
       setCopyValue(svgResult)
     }
   }, [copyValue, variant, playgroundColors])
@@ -119,26 +123,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
       />
       <ButtonSection>
         <CopyToClipboard text={copyValue}>
-          <Button
-            icon={
-              <svg width={16} height={16} fill="none">
-                <rect
-                  x={5}
-                  y={5}
-                  width={10}
-                  height={10}
-                  rx={2}
-                  stroke="currentColor"
-                  strokeWidth={2}
-                />
-                <path
-                  d="M11 3v0a2 2 0 00-2-2H3a2 2 0 00-2 2v6a2 2 0 002 2v0"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                />
-              </svg>
-            }
-          />
+          <Button>Copy SVG</Button>
         </CopyToClipboard>
       </ButtonSection>
     </AvatarContainer>
@@ -148,7 +133,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
 const getRandomPaletteIndex = () => Math.floor(Math.random() * paletteColors.length)
 
 const avatarSizes = {
-  small: 32,
+  small: 40,
   medium: 80,
   large: 128,
 }
@@ -177,6 +162,16 @@ const PalleteSection = styled.div`
   @media (max-width: 800px) {
     grid-template-columns: auto auto;
     justify-content: space-between;
+  }
+`
+
+const FooterMadeBy = styled.p`
+  margin: 0;
+  color: var(--c-body-secondary);
+  text-align: left;
+
+  a {
+    color: ${p => p.color};
   }
 `
 
@@ -252,7 +247,7 @@ const Playground = () => {
     ['100%', 'auto'],
     'auto'
   );
-  
+
   const randomLabel = useMedia(
     ['(max-width: 800px)', '(min-width: 800px)'],
     ['Random', 'Random palette'],
@@ -299,7 +294,7 @@ const Playground = () => {
               </svg>
             }
           />
-          
+
           <Button
             as="a"
             href="https://github.com/boringdesigners/boring-avatars"
@@ -324,6 +319,19 @@ const Playground = () => {
           />
         ))}
       </AvatarsGrid>
+      <Footer>
+          <FooterMadeBy color={dotColor0}>
+            <small>
+              Made by
+              {" "}
+              <a href="https://hayk.design/" target="_blank" rel="noopener">Hayk An</a>
+              {" "}
+              and
+              {" "}
+              <a href="https://josepmartins.com/" target="_blank" rel="noopener">Josep Martins</a>
+            </small>
+          </FooterMadeBy>
+      </Footer>
     </>
   )
 }
