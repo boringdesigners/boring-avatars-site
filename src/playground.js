@@ -238,7 +238,7 @@ const Playground = () => {
     setDotColor4(playgroundColors[4])
   }, [playgroundColors])
 
-  const [avatarSize, setAvatarSize] = useState(avatarSizes.large)
+  const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
   const [variant, setVariant] = useState(variants.marble)
 
   const variantWidth = useMedia(
