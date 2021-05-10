@@ -331,7 +331,7 @@ const Playground = () => {
               <a href="https://josepmartins.com/" target="_blank" rel="noreferrer noopener">Josep Martins</a>
               . Names from
               {" "}
-              <a href="https://notablewomen.withgoogle.com/" target="_blank" rel="noreferrer noopener">Notable Women</a>
+              <a href="https://notablewomen.withgoogle.com/all" target="_blank" rel="noreferrer noopener">Notable Women</a>
               .
             </small>
           </FooterMadeBy>
