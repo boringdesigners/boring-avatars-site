@@ -23,7 +23,7 @@ const Header = styled.header`
 `
 
 const Footer = styled.footer`
-  padding: 0 var(--pagePadding) var(--sp-m);
+  padding: 0 var(--pagePadding) var(--sp-xl);
 `
 
 const ColorsSection = styled.div`
@@ -329,6 +329,10 @@ const Playground = () => {
               and
               {" "}
               <a href="https://josepmartins.com/" target="_blank" rel="noreferrer noopener">Josep Martins</a>
+              . Names from
+              {" "}
+              <a href="https://notablewomen.withgoogle.com/" target="_blank" rel="noreferrer noopener">Notable Women</a>
+              .
             </small>
           </FooterMadeBy>
       </Footer>
