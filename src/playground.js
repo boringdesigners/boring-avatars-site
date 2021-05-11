@@ -18,7 +18,7 @@ const Header = styled.header`
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
-    background-color: var(--c-backgroundAlt);
+    grid-gap: var(--sp-m);
   }
 `
 
@@ -247,12 +247,6 @@ const Playground = () => {
     'auto'
   );
 
-  const randomLabel = useMedia(
-    ['(max-width: 800px)', '(min-width: 800px)'],
-    ['Random', 'Random palette'],
-    'Random'
-  );
-
   return (
     <>
       <BaseStyles darkMode={darkMode} />
@@ -270,7 +264,7 @@ const Playground = () => {
             <ColorDot value={dotColor3} onChange={(color) => setDotColor3(color)} />
             <ColorDot value={dotColor4} onChange={(color) => setDotColor4(color)} />
           </ColorsSection>
-          <Button onClick={() => handleRandomColors()}>{randomLabel}</Button>
+          <Button onClick={() => handleRandomColors()}>Random palette</Button>
         </PalleteSection>
         <SizeSection>
           <SegmentGroup>

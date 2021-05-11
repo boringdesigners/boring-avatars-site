@@ -16,7 +16,6 @@ export const exampleNames = [
   "Elizabeth Peratrovich",
   "Alicia Dickerson",
   "Daisy Gatson",
-  "Madam C",
   "Emma Willard",
   "Amelia Boynton",
   "Maria Mitchell",
