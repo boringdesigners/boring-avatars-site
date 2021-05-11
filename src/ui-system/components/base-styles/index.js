@@ -13,7 +13,7 @@ const cssVariables = css`
 
   --pagePadding: calc(var(--sp-s) + 2vw);
 
-  --buttonHeight: 1.8rem;
+  --buttonHeight: 1.75rem;
 
   --c-fieldHover: hsla(0,0%,0%,0.15);
   --c-fieldFocus: hsla(0,0%,0%,0.3);

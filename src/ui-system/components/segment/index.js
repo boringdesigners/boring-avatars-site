@@ -17,7 +17,6 @@ const SegmentWrapper = styled(Button)`
 
   ${p => p.isSelected && `background-color: var(--c-background)`};
   ${p => !p.isSelected && `color: var(--c-fade)`};
-  width: 100%;
 `
 
 export const SegmentGroup = ({ children, width }) => {
@@ -26,9 +25,9 @@ export const SegmentGroup = ({ children, width }) => {
   )
 }
 
-const Segment = ({ children, isSelected, hasFullWidth, ...props }) => {
+const Segment = ({ children, isSelected, hasFullWidth, icon, ...props }) => {
   return (
-    <SegmentWrapper isSelected={isSelected} {...props}>{children}</SegmentWrapper>
+    <SegmentWrapper icon={icon} isSelected={isSelected} {...props}>{children}</SegmentWrapper>
   )
 }
 
