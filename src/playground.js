@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
-import colors from 'nice-color-palettes'
+import colors from 'nice-color-palettes/500'
 import { exampleNames } from './example-names'
 import Avatar from 'boring-avatars'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -41,7 +41,7 @@ const AvatarsGrid = styled.div`
   display: grid;
   grid-gap: var(--sp-s);
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  padding: var(--pagePadding);
+  padding: var(--sp-xl) var(--pagePadding);
 `
 
 const ButtonSection = styled.div`
@@ -173,13 +173,16 @@ const SizeSection = styled.div`
 
 const variants = {
   marble: 'marble',
-  geometric: 'geometric',
-  abstract: 'abstract',
-  beam: 'beam'
+  beam: 'beam',
+  pixel: 'pixel',
+  sunset: 'sunset',
+  bauhaus: 'bauhaus',
+  ring: 'ring',
+  dome: 'dome'
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[81]
+  const defaultPlaygroundColors = paletteColors[69]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
