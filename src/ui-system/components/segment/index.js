@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from '../button'
 
 const SegmentGroupWrapper = styled.div`
+  overflow: auto;
   background-color: var(--c-button);
   padding: 0.2rem;
   border-radius: 10rem;
