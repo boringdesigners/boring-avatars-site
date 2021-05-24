@@ -48,15 +48,16 @@ const ButtonSection = styled.div`
   display: grid;
   place-items: center;
   opacity: 0;
+  transition: 0.5s 0s;
 `
 
 const AvatarContainer = styled.div`
   display: grid;
-  padding: 0 var(--sp-m);
   font-size: 0.8rem;
 
   &:hover ${ButtonSection} {
     opacity: 1;
+    transition: 0.2s 0.1s;
   }
 `
 

@@ -25,6 +25,10 @@ const ButtonWrapper = styled.button`
   &:hover {
     background-color: var(--c-buttonHover);
   }
+  
+  &:active {
+    background-color: var(--c-buttonActive);
+  }
 `
 
 const Button = ({ children, icon, ...props }) => {

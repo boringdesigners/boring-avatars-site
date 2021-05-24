@@ -22,6 +22,7 @@ const cssVariables = css`
   --c-body-secondary: hsl(0,0%,60%);
   --c-button: hsla(0,0%,0%,0.1);
   --c-buttonHover: hsla(0,0%,0%,0.2);
+  --c-buttonActive: hsla(0,0%,0%,0.3);
   --c-fade: hsla(0,0%,0%,0.4);
   --c-backgroundAlt: hsla(0,0%,0%,0.07);
 
