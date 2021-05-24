@@ -14,11 +14,10 @@ const Header = styled.header`
   grid-template-columns: auto 1fr auto;
   padding: var(--pagePadding);
   align-items: center;
-  grid-gap: var(--sp-s);
+  grid-gap: var(--sp-m);
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
-    grid-gap: var(--sp-m);
   }
 `
 
@@ -39,7 +38,7 @@ const ColorsSection = styled.div`
 
 const AvatarsGrid = styled.div`
   display: grid;
-  grid-gap: var(--sp-s);
+  grid-gap: var(--sp-m);
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   padding: var(--sp-xl) var(--pagePadding);
 `
