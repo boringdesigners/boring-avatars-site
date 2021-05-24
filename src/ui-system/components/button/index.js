@@ -21,6 +21,7 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   user-select: none;
   min-height: var(--buttonHeight);
+  white-space: nowrap;
 
   &:hover {
     background-color: var(--c-buttonHover);
