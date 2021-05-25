@@ -153,8 +153,11 @@ const FooterMadeBy = styled.p`
   margin: 0;
   color: var(--c-body-secondary);
   text-align: left;
+  display: flex;
+  justify-content: space-between;
 
   a {
+    font-weight: 600;
     color: ${p => p.color};
   }
 `
@@ -181,7 +184,7 @@ const variants = {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[69]
+  const defaultPlaygroundColors = paletteColors[39]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
@@ -289,7 +292,16 @@ const Playground = () => {
         ))}
       </AvatarsGrid>
       <Footer>
-          <FooterMadeBy color={dotColor0}>
+          <FooterMadeBy color={dotColor3}>
+            <small>
+              Names from
+              {" "}
+              <a href="https://notablewomen.withgoogle.com/all" target="_blank" rel="noreferrer noopener">Notable Women</a>
+              , colors from
+              {" "}
+              <a href="https://github.com/Jam3/nice-color-palettes" target="_blank" rel="noreferrer noopener">Nice Color Palettes</a>
+              .
+            </small>
             <small>
               Made by
               {" "}
@@ -298,9 +310,6 @@ const Playground = () => {
               and
               {" "}
               <a href="https://josepmartins.com/" target="_blank" rel="noreferrer noopener">Josep Martins</a>
-              . Names from
-              {" "}
-              <a href="https://notablewomen.withgoogle.com/all" target="_blank" rel="noreferrer noopener">Notable Women</a>
               .
             </small>
           </FooterMadeBy>
