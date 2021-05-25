@@ -178,7 +178,6 @@ const variants = {
   sunset: 'sunset',
   bauhaus: 'bauhaus',
   ring: 'ring',
-  dome: 'dome'
 }
 
 const Playground = () => {
