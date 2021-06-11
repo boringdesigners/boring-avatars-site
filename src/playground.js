@@ -105,7 +105,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant, square }) => {
 
       setCopyValue(svgResult)
     }
-  }, [copyValue, variant, playgroundColors])
+  }, [copyValue, variant, playgroundColors, avatarName])
 
   return (
     <AvatarContainer>
