@@ -90,7 +90,7 @@ const Input = styled.input`
   }
 `
 
-const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, variant, square }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
   const ref = useRef();
@@ -115,6 +115,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
           colors={playgroundColors}
           size={size}
           variant={variants[variant]}
+          square={square}
         />
       </AvatarSection>
       <Input
