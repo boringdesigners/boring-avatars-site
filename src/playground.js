@@ -6,6 +6,7 @@ import { exampleNames } from './example-names'
 import Avatar from 'boring-avatars'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useMedia } from './hooks'
+import { Github, RoundCorner, SquareCorner, Theme } from './icons'
 
 const paletteColors = colors
 
@@ -89,7 +90,7 @@ const Input = styled.input`
   }
 `
 
-const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
+const AvatarWrapper = ({ name, playgroundColors, size, variant, square }) => {
   const [avatarName, setAvatarName] = useState(name)
   const handleFocus = (event) => event.target.select()
   const ref = useRef();
@@ -114,6 +115,7 @@ const AvatarWrapper = ({ name, playgroundColors, size, variant }) => {
           colors={playgroundColors}
           size={size}
           variant={variants[variant]}
+          square={square}
         />
       </AvatarSection>
       <Input
@@ -136,6 +138,17 @@ const avatarSizes = {
   small: 40,
   medium: 80,
   large: 128,
+}
+
+const shapes = {
+  round: {
+    isSquare: false,
+    icon: <RoundCorner />
+  },
+  square: {
+    isSquare: true,
+    icon: <SquareCorner />
+  }
 }
 
 const PalleteSection = styled.div`
@@ -166,10 +179,10 @@ const SizeSection = styled.div`
   display: grid;
   grid-gap: var(--sp-s);
   align-items: center;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
 
   @media (max-width: 800px) {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto 1fr auto auto;
     justify-content: space-between;
   }
 `
@@ -193,7 +206,9 @@ const Playground = () => {
   const [dotColor2, setDotColor2] = useState(playgroundColors[2])
   const [dotColor3, setDotColor3] = useState(playgroundColors[3])
   const [dotColor4, setDotColor4] = useState(playgroundColors[4])
-
+  
+  const [square, setSquare] = useState(false)
+  
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
 
   const handleRandomColors = () => {
@@ -239,6 +254,16 @@ const Playground = () => {
         </PalleteSection>
         <SizeSection>
           <SegmentGroup>
+            {Object.keys(shapes).map((shapeItem, index) => (
+              <Segment
+                key={index}
+                onClick={() => setSquare(shapes[shapeItem].isSquare)}
+                isSelected={shapes[shapeItem].isSquare === square}
+                icon={shapes[shapeItem].icon}
+              />
+            ))}
+          </SegmentGroup>
+          <SegmentGroup>
             {Object.entries(avatarSizes).map(([key, value], index) => (
               <Segment
                 key={index}
@@ -257,12 +282,7 @@ const Playground = () => {
           <Button
             onClick={() => setDarkMode(!darkMode)}
             aria-label="Switch color theme"
-            icon={
-              <svg width={20} height={20} fill="none">
-                <circle cx={10} cy={10} r={9} stroke="currentColor" strokeWidth={2} />
-                <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />
-              </svg>
-            }
+            icon={<Theme />}
           />
 
           <Button
@@ -271,11 +291,7 @@ const Playground = () => {
             target="_blank"
             rel="noreferrer noopener"
             aria-label="Visit Github repository"
-            icon={
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M12 0C5.37 0 0 5.37 0 12C0 17.31 3.435 21.795 8.205 23.385C8.805 23.49 9.03 23.13 9.03 22.815C9.03 22.53 9.015 21.585 9.015 20.58C6 21.135 5.22 19.845 4.98 19.17C4.845 18.825 4.26 17.76 3.75 17.475C3.33 17.25 2.73 16.695 3.735 16.68C4.68 16.665 5.355 17.55 5.58 17.91C6.66 19.725 8.385 19.215 9.075 18.9C9.18 18.12 9.495 17.595 9.84 17.295C7.17 16.995 4.38 15.96 4.38 11.37C4.38 10.065 4.845 8.985 5.61 8.145C5.49 7.845 5.07 6.615 5.73 4.965C5.73 4.965 6.735 4.65 9.03 6.195C9.99 5.925 11.01 5.79 12.03 5.79C13.05 5.79 14.07 5.925 15.03 6.195C17.325 4.635 18.33 4.965 18.33 4.965C18.99 6.615 18.57 7.845 18.45 8.145C19.215 8.985 19.68 10.05 19.68 11.37C19.68 15.975 16.875 16.995 14.205 17.295C14.64 17.67 15.015 18.39 15.015 19.515C15.015 21.12 15 22.41 15 22.815C15 23.13 15.225 23.505 15.825 23.385C18.2072 22.5808 20.2773 21.0498 21.7438 19.0074C23.2103 16.9651 23.9994 14.5143 24 12C24 5.37 18.63 0 12 0Z" fill="currentColor"/>
-              </svg>
-            }
+            icon={<Github />}
           />
 
         </SizeSection>
@@ -288,6 +304,7 @@ const Playground = () => {
             name={exampleName}
             playgroundColors={filteredColors}
             variant={variant}
+            square={square}
           />
         ))}
       </AvatarsGrid>
