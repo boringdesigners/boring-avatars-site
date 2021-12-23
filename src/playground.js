@@ -188,8 +188,8 @@ const SizeSection = styled.div`
 `
 
 const variants = {
-  marble: 'marble',
   beam: 'beam',
+  marble: 'marble',
   pixel: 'pixel',
   sunset: 'sunset',
   bauhaus: 'bauhaus',
@@ -197,7 +197,7 @@ const variants = {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[39]
+  const defaultPlaygroundColors = paletteColors[0]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
@@ -206,9 +206,9 @@ const Playground = () => {
   const [dotColor2, setDotColor2] = useState(playgroundColors[2])
   const [dotColor3, setDotColor3] = useState(playgroundColors[3])
   const [dotColor4, setDotColor4] = useState(playgroundColors[4])
-  
+
   const [square, setSquare] = useState(false)
-  
+
   const filteredColors = [dotColor0, dotColor1, dotColor2, dotColor3, dotColor4]
 
   const handleRandomColors = () => {
@@ -225,7 +225,7 @@ const Playground = () => {
   }, [playgroundColors])
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium)
-  const [variant, setVariant] = useState(variants.marble)
+  const [variant, setVariant] = useState(variants.beam)
 
   const variantWidth = useMedia(
     ['(max-width: 800px)', '(min-width: 800px)'],
