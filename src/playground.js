@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
-import colors from 'nice-color-palettes/500'
+import colors from 'nice-color-palettes/1000'
 import { exampleNames } from './example-names'
 import Avatar from 'boring-avatars'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -197,7 +197,7 @@ const variants = {
 }
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[0]
+  const defaultPlaygroundColors = paletteColors[493]
   const [playgroundColors, setPlaygroundColors] = useState(defaultPlaygroundColors)
 
   const [darkMode, setDarkMode] = useState(false)
@@ -238,8 +238,8 @@ const Playground = () => {
       <BaseStyles darkMode={darkMode} />
       <Header>
         <SegmentGroup width={variantWidth}>
-          {Object.keys(variants).map((variantItem) => (
-            <Segment onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
+          {Object.keys(variants).map((variantItem, i) => (
+            <Segment key={i} onClick={() => setVariant(variants[variantItem])} isSelected={variantItem === variant}>{variantItem}</Segment>
           ))}
         </SegmentGroup>
         <PalleteSection>
