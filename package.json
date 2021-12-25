@@ -4,9 +4,11 @@
   "private": true,
   "homepage": "https://boringavatars.com",
   "dependencies": {
+    "@radix-ui/react-dialog": "^0.1.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-loader": "^8.1.0",
     "boring-avatars": "^1.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { SegmentGroup, Segment, Button, BaseStyles, ColorDot } from './ui-system'
+import { SegmentGroup, Segment, Button, BaseStyles, ColorDot, AboutDialog } from './ui-system'
 import colors from 'nice-color-palettes/1000'
 import { exampleNames } from './example-names'
 import Avatar from 'boring-avatars'
@@ -179,7 +179,7 @@ const SizeSection = styled.div`
   display: grid;
   grid-gap: var(--sp-s);
   align-items: center;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
 
   @media (max-width: 800px) {
     grid-template-columns: auto auto 1fr auto auto;
@@ -284,7 +284,6 @@ const Playground = () => {
             aria-label="Switch color theme"
             icon={<Theme />}
           />
-
           <Button
             as="a"
             href="https://github.com/boringdesigners/boring-avatars"
@@ -293,7 +292,9 @@ const Playground = () => {
             aria-label="Visit Github repository"
             icon={<Github />}
           />
-
+          <AboutDialog
+            playgroundColors={filteredColors}
+          />
         </SizeSection>
       </Header>
       <AvatarsGrid>

@@ -14,7 +14,7 @@ const ButtonWrapper = styled.button`
   background: var(--c-button);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  border-radius: 20rem;
+  border-radius: 50px;
   font-size: 0.7rem;
   line-height: 1.3;
   font-weight: 700;
@@ -22,11 +22,12 @@ const ButtonWrapper = styled.button`
   user-select: none;
   min-height: var(--buttonHeight);
   white-space: nowrap;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: var(--c-buttonHover);
   }
-  
+
   &:active {
     background-color: var(--c-buttonActive);
   }
