@@ -49,40 +49,25 @@ const StyledOverlay = styled(DialogPrimitive.Overlay)`
   a {
     position: relative;
     color: inherit;
-
-    &:hover:before {
-      background-color: var(--c-buttonHover);
-    }
-
-    &:active:before {
-      background-color: var(--c-buttonActive);
-    }
-  }
-
-  a:before {
-    content: ' ';
-    position: absolute;
-    inset: 0 -.25em;
-    z-index: -1;
-    background-color: var(--c-button);
-    border-radius: 50px;
-    transition: background-color 0.2s;
+    text-decoration: underline;
   }
 `
 
 const StyledContent = styled(DialogPrimitive.Content)`
   position: relative;
   max-width: 80ch;
-  padding: var(--sp-xl);
+  padding: var(--sp-l);
   font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+  font-weight: normal;
+  line-height: 1.3;
 
   h2 {
     font-weight: normal;
-    font-size: clamp(1.5rem, 10vw, 2.5rem);
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
   }
 
   p {
-    font-size: clamp(1rem, 10vw, 1.25rem);
+    font-size: clamp(1rem, 5vw, 1.25rem);
   }
 
   @media (prefers-reduced-motion: no-preference) {
