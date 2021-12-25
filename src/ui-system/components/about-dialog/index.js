@@ -111,7 +111,7 @@ const AboutDialog = ({ playgroundColors, ...props }) => (
   <Dialog>
     <DialogTrigger asChild>
       <Button
-        aria-label="Open project information"
+        aria-label="Read more information"
         icon={<About />}
       />
     </DialogTrigger>
