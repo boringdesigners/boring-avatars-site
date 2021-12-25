@@ -145,7 +145,7 @@ const AboutDialog = ({ playgroundColors, ...props }) => (
         {" "}
         <a target="_blank" href="https://github.com/boringdesigners/boring-avatars" rel="noopener noreferrer">React library</a>
         {" "}
-        that generates custom, SVG-based avatars from any username and color palette. Feel free to use it in your personal personal projects.
+        that generates custom, SVG-based avatars from any username and color palette. Feel free to use it in your personal or commercial projects.
       </p>
       <p>
         The playground allows you to change names, generate random color palettes or copy the generated SVG's and use them in any design tool like Figma, Sketch or directly into your web project.
