@@ -92,7 +92,7 @@ const DialogTrigger = DialogPrimitive.Trigger;
 const DialogContent = Content;
 const DialogClose = DialogPrimitive.Close;
 
-const AboutDialog = ({ playgroundColors, ...props }) => (
+const AboutDialog = ({ playgroundColors, variant, ...props }) => (
   <Dialog>
     <DialogTrigger asChild>
       <Button
@@ -108,7 +108,7 @@ const AboutDialog = ({ playgroundColors, ...props }) => (
           <Avatar
             name={'hihayk'}
             colors={playgroundColors}
-            variant={'beam'}
+            variant={variant}
           />
           hihayk
         </Contributor>
@@ -119,7 +119,7 @@ const AboutDialog = ({ playgroundColors, ...props }) => (
           <Avatar
             name={'josepmartins'}
             colors={playgroundColors}
-            variant={'beam'}
+            variant={variant}
           />
           josepmartins
         </Contributor>

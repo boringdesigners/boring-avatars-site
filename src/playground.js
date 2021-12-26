@@ -294,6 +294,7 @@ const Playground = () => {
           />
           <AboutDialog
             playgroundColors={filteredColors}
+            variant={variant}
           />
         </SizeSection>
       </Header>
