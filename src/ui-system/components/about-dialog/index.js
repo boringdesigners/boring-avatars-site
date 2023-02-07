@@ -1,16 +1,16 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components'
-import * as DialogPrimitive from '@radix-ui/react-dialog';
-import Button from '../button';
-import Avatar from 'boring-avatars'
-import { About } from '../../../icons'
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import Button from "../button";
+import Avatar from "boring-avatars";
+import { About } from "../../../icons";
 
 const overlayShow = keyframes`
   from { opacity: 0 },
-`
+`;
 const contentShow = keyframes`
   from { opacity: 0; transform: scale(.92); },
-`
+`;
 const Contributor = styled.a`
   color: inherit;
   display: inline-flex;
@@ -23,13 +23,13 @@ const Contributor = styled.a`
     width: 0.85em;
     height: 0.85em;
   }
-`
+`;
 
 const CloseButton = styled(Button)`
   position: absolute;
   top: 5vh;
   right: 5vh;
-`
+`;
 
 const StyledOverlay = styled(DialogPrimitive.Overlay)`
   background-color: var(--c-background);
@@ -51,13 +51,14 @@ const StyledOverlay = styled(DialogPrimitive.Overlay)`
     color: inherit;
     text-decoration: underline;
   }
-`
+`;
 
 const StyledContent = styled(DialogPrimitive.Content)`
   position: relative;
   max-width: 80ch;
   padding: var(--sp-l);
-  font-family: 'SF Mono', SFMono-Regular, ui-monospace, 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+    Menlo, Consolas, monospace;
   font-weight: normal;
   line-height: 1.3;
 
@@ -74,8 +75,10 @@ const StyledContent = styled(DialogPrimitive.Content)`
     animation: ${contentShow} 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  &:focus: { outline: none; }
-`
+  &:focus: {
+    outline: none;
+  }
+`;
 
 function Content({ children, ...props }) {
   return (
@@ -95,29 +98,27 @@ const DialogClose = DialogPrimitive.Close;
 const AboutDialog = ({ playgroundColors, variant, ...props }) => (
   <Dialog>
     <DialogTrigger asChild>
-      <Button
-        aria-label="Read more information"
-        icon={<About />}
-      />
+      <Button aria-label="Read more information" icon={<About />} />
     </DialogTrigger>
     <DialogContent>
       <h2>
-        Hi, we are
-        {" "}
-        <Contributor target="_blank" href="https://hayk.design/#/" rel="noopener noreferrer">
-          <Avatar
-            name={'hihayk'}
-            colors={playgroundColors}
-            variant={variant}
-          />
+        We are{" "}
+        <Contributor
+          target="_blank"
+          href="https://hayk.design/#/"
+          rel="noopener noreferrer"
+        >
+          <Avatar name={"hihayk"} colors={playgroundColors} variant={variant} />
           hihayk
-        </Contributor>
-        {" "}
-        and
-        {" "}
-        <Contributor target="_blank" href="http://www.josepmartins.com/" rel="noopener noreferrer">
+        </Contributor>{" "}
+        and{" "}
+        <Contributor
+          target="_blank"
+          href="http://www.josepmartins.com/"
+          rel="noopener noreferrer"
+        >
           <Avatar
-            name={'josepmartins'}
+            name={"josepmartins"}
             colors={playgroundColors}
             variant={variant}
           />
@@ -126,22 +127,54 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
         , a Barcelona based front-end and product design duo.
       </h2>
       <p>
-        Boring avatars is a tiny JavaScript
-        {" "}
-        <a target="_blank" href="https://github.com/boringdesigners/boring-avatars" rel="noopener noreferrer">React library</a>
-        {" "}
-        that generates custom, SVG-based avatars from any username and color palette. Feel free to use it in your personal or commercial projects.
+        Boring avatars is a tiny{" "}
+        <a
+          target="_blank"
+          href="https://github.com/boringdesigners/boring-avatars"
+          rel="noopener noreferrer"
+        >
+          React library
+        </a>{" "}
+        to generates custom, SVG-based avatars from any username and color
+        palette. Feel free to use it in your personal or commercial projects.
       </p>
       <p>
-        The playground allows you to change names, generate random color palettes or copy the generated SVG's and use them in any design tool like Figma, Sketch or directly into your web project.
+        Use this playground to change names, generate random color palettes and
+        copy the generated SVG's to use them in any design tool like Figma,
+        Sketch or into your web project.
       </p>
       <p>
-        If you like the project you can contribute
-        {" "}
-        <a target="_blank" href="https://ko-fi.com/boringdesginers/" rel="noopener noreferrer">with a coffee</a>
-        {" "}
-        so we can keep up with the work.
+        To generate avatars on the fly you can use our{" "}
+        <a
+          target="_blank"
+          href="https://github.com/boringdesigners/boring-avatars-service"
+          rel="noopener noreferrer"
+        >
+          boring avatars service
+        </a>
+        .
       </p>
+      <p>
+        If you like the project, help us to keep it alive through our{" "}
+        <a
+          target="_blank"
+          href="https://github.com/sponsors/boringdesigners"
+          rel="noopener noreferrer"
+        >
+          GitHub sponsors page 🫶
+        </a>
+        .
+      </p>
+      <iframe
+        src="https://github.com/sponsors/boringdesigners/card"
+        title="Sponsor boringdesigners"
+        height="130"
+        width="100%"
+        style={{
+          border: "1px solid #eaeaea",
+          borderRadius: "6px",
+        }}
+      ></iframe>
       <DialogClose asChild>
         <CloseButton>Close</CloseButton>
       </DialogClose>
