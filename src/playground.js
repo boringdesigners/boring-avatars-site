@@ -219,7 +219,15 @@ const variants = {
 };
 
 const Playground = () => {
-  const defaultPlaygroundColors = paletteColors[493];
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const sum = day + month + year;
+
+  const randomSeed = sum % 1000;
+  const defaultPlaygroundColors = paletteColors[randomSeed];
+
   const [playgroundColors, setPlaygroundColors] = useState(
     defaultPlaygroundColors
   );
