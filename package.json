@@ -12,6 +12,7 @@
     "boring-avatars": "^1.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },

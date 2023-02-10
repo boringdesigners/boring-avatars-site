@@ -1,8 +1,11 @@
-import React from 'react';
-import Playground from './playground';
+import React from "react";
+import Playground from "./playground";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => (
-  <Playground />
+  <Router>
+    <Playground />
+  </Router>
 );
 
 export default App;

@@ -27,8 +27,8 @@ const Contributor = styled.a`
 
 const CloseButton = styled(Button)`
   position: absolute;
-  top: 5vh;
-  right: 5vh;
+  top: calc(var(--sp-l) * -1);
+  right: var(--sp-l);
 `;
 
 const StyledOverlay = styled(DialogPrimitive.Overlay)`
@@ -60,15 +60,17 @@ const StyledContent = styled(DialogPrimitive.Content)`
   font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
     Menlo, Consolas, monospace;
   font-weight: normal;
-  line-height: 1.3;
 
   h2 {
     font-weight: normal;
-    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    font-size: clamp(1.25rem, 6vw, 2rem);
+    line-height: 1.3;
+    margin-top: 0;
   }
 
   p {
     font-size: clamp(1rem, 5vw, 1.25rem);
+    line-height: 1.5;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -165,16 +167,6 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
         </a>
         .
       </p>
-      <iframe
-        src="https://github.com/sponsors/boringdesigners/card"
-        title="Sponsor boringdesigners"
-        height="130"
-        width="100%"
-        style={{
-          border: "1px solid #eaeaea",
-          borderRadius: "6px",
-        }}
-      ></iframe>
       <DialogClose asChild>
         <CloseButton>Close</CloseButton>
       </DialogClose>
