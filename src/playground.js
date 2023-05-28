@@ -188,11 +188,24 @@ const FooterMadeBy = styled.p`
   color: var(--c-body-secondary);
   text-align: left;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   a {
     font-weight: 600;
     color: ${(p) => p.color};
+  }
+
+  small {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-s);
+  }
+
+  @media (max-width: 800px) {
+    gap: var(--sp-m);
+    flex-direction: column;
+    align-items: flex-start;
   }
 `;
 
@@ -390,42 +403,60 @@ const Playground = () => {
       <Footer>
         <FooterMadeBy color={dotColor3}>
           <small>
-            Names from{" "}
-            <a
-              href="https://notablewomen.withgoogle.com/all"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Notable Women
-            </a>
-            , colors from{" "}
-            <a
-              href="https://github.com/Jam3/nice-color-palettes"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Nice Color Palettes
-            </a>
-            .
+            <span>
+              Names from{" "}
+              <a
+                href="https://notablewomen.withgoogle.com/all"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Notable Women
+              </a>
+              , colors from{" "}
+              <a
+                href="https://github.com/Jam3/nice-color-palettes"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Nice Color Palettes
+              </a>
+              .
+            </span>
           </small>
           <small>
-            Made by{" "}
-            <a
-              href="https://hayk.design/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Hayk An
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://josepmartins.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              Josep Martins
-            </a>
-            .
+            <img
+              src={"https://avatars.githubusercontent.com/u/49538330?s=28&v=4"}
+              alt="Clerk logo"
+            />
+            <span>
+              Shoutout to <a href="https://clerk.com/">Clerk</a> for being one
+              of our amazing{" "}
+              <a href="http://www.github.com/sponsors/boringdesigners/">
+                GitHub sponsors
+              </a>
+              .
+            </span>
+          </small>
+          <small>
+            <span>
+              Made by{" "}
+              <a
+                href="https://hayk.design/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Hayk An
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://josepmartins.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Josep Martins
+              </a>
+              .
+            </span>
           </small>
         </FooterMadeBy>
       </Footer>

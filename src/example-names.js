@@ -98,5 +98,5 @@ export const exampleNames = [
   "Emma Lazarus",
   "Marian Anderson",
   "Virginia Apgar",
-  "Mary Walton"
-]
+  "Mary Walton",
+];
