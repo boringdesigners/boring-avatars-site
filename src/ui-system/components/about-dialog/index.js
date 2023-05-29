@@ -25,6 +25,16 @@ const Contributor = styled.a`
   }
 `;
 
+const Sponsors = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--sp-s);
+  margin-top: var(--sp-l);
+  background-color: #f5f5f5;
+  padding: var(--sp-m);
+  border-radius: 0.375rem;
+`;
+
 const CloseButton = styled(Button)`
   position: absolute;
   top: calc(var(--sp-l) * -1);
@@ -146,7 +156,7 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
         Sketch or into your web project.
       </p>
       <p>
-        To generate avatars on the fly you can use our{" "}
+        To generate avatars on the go you can use our{" "}
         <a
           target="_blank"
           href="https://github.com/boringdesigners/boring-avatars-service"
@@ -167,6 +177,20 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
         </a>
         .
       </p>
+      <Sponsors>
+        <img
+          src={"https://avatars.githubusercontent.com/u/49538330?s=28&v=4"}
+          alt="Clerk logo"
+        />
+        <span>
+          Shoutout to <a href="https://clerk.com/">✨ Clerk ✨</a> for being one
+          of our amazing{" "}
+          <a href="http://www.github.com/sponsors/boringdesigners/">
+            GitHub sponsors
+          </a>
+          .
+        </span>
+      </Sponsors>
       <DialogClose asChild>
         <CloseButton>Close</CloseButton>
       </DialogClose>

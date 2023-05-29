@@ -354,12 +354,18 @@ const Playground = () => {
                   aria-label={"Change size to " + value}
                   isSelected={value === avatarSize}
                   icon={
-                    <svg width={20} height={20} fill="none">
-                      <circle
-                        cx={10}
-                        cy={10}
-                        r={(index + 1) * 3 + 1}
-                        fill="currentColor"
+                    <svg
+                      width={20}
+                      height={20}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <rect
+                        width="100%"
+                        height="100%"
+                        transform-origin="50% 50%"
+                        transform={`scale(${(index + 1.2) * 0.28})`}
+                        rx={square ? 0 : 40}
                       />
                     </svg>
                   }
