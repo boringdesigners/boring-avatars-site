@@ -185,6 +185,7 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
             height="30"
             viewBox="0 0 24 30"
             fill="none"
+            alt="Clerk.dev logo"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
