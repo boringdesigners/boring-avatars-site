@@ -27,13 +27,16 @@ const Contributor = styled.a`
 
 const Sponsors = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--sp-s);
-  margin-top: var(--sp-l);
   background-color: #f5f5f5;
-  padding: var(--sp-m);
+  padding: var(--sp-s);
   border-radius: 0.375rem;
   gap: var(--sp-m);
+
+  p {
+    margin: 0;
+  }
 `;
 
 const CloseButton = styled(Button)`

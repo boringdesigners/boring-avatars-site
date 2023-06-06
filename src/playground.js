@@ -6,7 +6,6 @@ import {
   Button,
   BaseStyles,
   ColorDot,
-  AboutDialog,
 } from "./ui-system";
 import colors from "nice-color-palettes/1000";
 import { exampleNames } from "./example-names";
@@ -18,20 +17,87 @@ import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
 
-const Header = styled.header`
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  padding: var(--pagePadding);
-  align-items: center;
-  grid-gap: var(--sp-m);
+const Sponsors = styled.a`
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-s);
+  margin-top: var(--sp-l);
+  background-color: #e8e4ff;
+  background: linear-gradient(
+    to bottom right,
+    #e8e4ff 0%,
+    #f9f9f9 40%,
+    #e8e4ff 100%
+  );
+  padding: var(--sp-m);
+  border-radius: 0.375rem;
+  gap: var(--sp-m);
+  text-decoration: none;
+  font-weight: normal;
 
-  @media (max-width: 1080px) {
-    grid-template-columns: 1fr;
+  p {
+    margin: 0;
   }
+`;
+
+const Header = styled.header`
+  display: flex;
+  padding: var(--sp-m) var(--pagePadding);
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  span {
+    color: var(--c-body-secondary);
+    display: inline-flex;
+    margin-left: var(--sp-xs);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-s);
+  }
+`;
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+`;
+
+const Sidebar = styled.aside`
+  height: 100vh;
+  position: sticky;
+  top: 20px;
+  padding: var(--sp-m) var(--pagePadding);
+`;
+
+const SidebarFooter = styled.footer`
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+    Menlo, Consolas, monospace;
+  font-weight: normal;
+  font-size: 0.875rem;
+  margin-top: var(--sp-xl);
+`;
+
+const Main = styled.main`
+  display: grid;
 `;
 
 const Footer = styled.footer`
   padding: 0 var(--pagePadding) var(--sp-xl);
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+    Menlo, Consolas, monospace;
+  font-weight: normal;
+
+  p {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+    line-height: 1.5;
+  }
 `;
 
 const ColorsSection = styled.div`
@@ -49,7 +115,7 @@ const AvatarsGrid = styled.div`
   display: grid;
   grid-gap: var(--sp-m);
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
-  padding: var(--sp-xl) var(--pagePadding);
+  padding: var(--sp-l) var(--pagePadding);
 `;
 
 const ButtonSection = styled.div`
@@ -160,20 +226,10 @@ const shapes = {
   },
 };
 
-const PalleteSection = styled.div`
-  display: grid;
-  grid-gap: var(--sp-s);
-  grid-template-columns: 1fr auto;
-  align-items: center;
-
-  @media (max-width: 1080px) {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-  }
-
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
-  }
+const Settings = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-m);
 `;
 
 const ShapeSelection = styled.div`
@@ -181,44 +237,6 @@ const ShapeSelection = styled.div`
   grid-gap: var(--sp-s);
   grid-template-columns: auto auto;
   align-items: center;
-`;
-
-const FooterMadeBy = styled.p`
-  margin: 0;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  a {
-    font-weight: 600;
-    color: ${(p) => p.color};
-  }
-
-  small {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-s);
-  }
-
-  @media (max-width: 800px) {
-    gap: var(--sp-m);
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-const SizeSection = styled.div`
-  display: grid;
-  grid-gap: var(--sp-s);
-  align-items: center;
-  grid-template-columns: auto auto auto;
-
-  @media (max-width: 1080px) {
-    grid-template-columns: auto auto 1fr;
-    justify-content: space-between;
-    order: -1;
-  }
 `;
 
 const variants = {
@@ -295,85 +313,19 @@ const Playground = () => {
     <>
       <BaseStyles />
       <Header>
-        <SegmentGroup width={variantWidth}>
-          {Object.keys(variants).map((variantItem, i) => (
-            <Segment
-              key={i}
-              onClick={() => setVariant(variants[variantItem])}
-              isSelected={variantItem === variant}
-            >
-              {variantItem}
-            </Segment>
-          ))}
-        </SegmentGroup>
-        <PalleteSection>
-          <ColorsSection>
-            <ColorDot
-              value={dotColor0}
-              onChange={(color) => setDotColor0(color)}
-            />
-            <ColorDot
-              value={dotColor1}
-              onChange={(color) => setDotColor1(color)}
-            />
-            <ColorDot
-              value={dotColor2}
-              onChange={(color) => setDotColor2(color)}
-            />
-            <ColorDot
-              value={dotColor3}
-              onChange={(color) => setDotColor3(color)}
-            />
-            <ColorDot
-              value={dotColor4}
-              onChange={(color) => setDotColor4(color)}
-            />
-            <Button
-              aria-label="Generate random colors"
-              icon={<Random />}
-              onClick={() => handleRandomColors()}
-            />
-          </ColorsSection>
-          <ShapeSelection>
-            <SegmentGroup>
-              {Object.keys(shapes).map((shapeItem, index) => (
-                <Segment
-                  key={index}
-                  onClick={() => setSquare(shapes[shapeItem].isSquare)}
-                  isSelected={shapes[shapeItem].isSquare === square}
-                  icon={shapes[shapeItem].icon}
-                />
-              ))}
-            </SegmentGroup>
-            <SegmentGroup>
-              {Object.entries(avatarSizes).map(([key, value], index) => (
-                <Segment
-                  key={index}
-                  onClick={() => setAvatarSize(value)}
-                  aria-label={"Change size to " + value}
-                  isSelected={value === avatarSize}
-                  icon={
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <rect
-                        width="100%"
-                        height="100%"
-                        transform-origin="50% 50%"
-                        transform={`scale(${(index + 1.2) * 0.28})`}
-                        rx={square ? 0 : 40}
-                      />
-                    </svg>
-                  }
-                />
-              ))}
-            </SegmentGroup>
-          </ShapeSelection>
-        </PalleteSection>
-        <SizeSection>
+        <h1>
+          Boring avatars
+          <span>v1.10.0</span>
+        </h1>
+        <div>
+          <Button
+            as="a"
+            href="http://www.github.com/sponsors/boringdesigners"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            ❤️ Sponsor
+          </Button>
           <Button
             as="a"
             href="https://github.com/boringdesigners/boring-avatars"
@@ -382,81 +334,131 @@ const Playground = () => {
             aria-label="Visit Github repository"
             icon={<Github />}
           />
-          <AboutDialog playgroundColors={filteredColors} variant={variant} />
-          <Button
-            as="a"
-            href="http://www.github.com/sponsors/boringdesigners"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Sponsor
-          </Button>
-        </SizeSection>
+        </div>
       </Header>
-      <AvatarsGrid>
-        {exampleNames.map((exampleName, name) => (
-          <AvatarWrapper
-            key={name}
-            size={avatarSize}
-            name={exampleName}
-            playgroundColors={filteredColors}
-            variant={variant}
-            square={square}
-          />
-        ))}
-      </AvatarsGrid>
-      <Footer>
-        <FooterMadeBy color={dotColor3}>
-          <small>
-            <span>
-              Names from{" "}
-              <a
-                href="https://notablewomen.withgoogle.com/all"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Notable Women
-              </a>
-              , colors from{" "}
-              <a
-                href="https://github.com/Jam3/nice-color-palettes"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Nice Color Palettes
-              </a>
-              .
-            </span>
-          </small>
-          <small>
-            <a href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
+      <Layout>
+        <Sidebar>
+          <Settings>
+            <SegmentGroup grid width={variantWidth}>
+              {Object.keys(variants).map((variantItem, i) => (
+                <Segment
+                  key={i}
+                  onClick={() => setVariant(variants[variantItem])}
+                  isSelected={variantItem === variant}
+                >
+                  {variantItem}
+                </Segment>
+              ))}
+            </SegmentGroup>
+            <ShapeSelection>
+              <SegmentGroup>
+                {Object.keys(shapes).map((shapeItem, index) => (
+                  <Segment
+                    key={index}
+                    onClick={() => setSquare(shapes[shapeItem].isSquare)}
+                    isSelected={shapes[shapeItem].isSquare === square}
+                    icon={shapes[shapeItem].icon}
+                  />
+                ))}
+              </SegmentGroup>
+              <SegmentGroup>
+                {Object.entries(avatarSizes).map(([key, value], index) => (
+                  <Segment
+                    key={index}
+                    onClick={() => setAvatarSize(value)}
+                    aria-label={"Change size to " + value}
+                    isSelected={value === avatarSize}
+                    icon={
+                      <svg
+                        width={20}
+                        height={20}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <rect
+                          width="100%"
+                          height="100%"
+                          transform-origin="50% 50%"
+                          transform={`scale(${(index + 1.2) * 0.28})`}
+                          rx={square ? 0 : 40}
+                        />
+                      </svg>
+                    }
+                  />
+                ))}
+              </SegmentGroup>
+            </ShapeSelection>
+            <ColorsSection>
+              <ColorDot
+                value={dotColor0}
+                onChange={(color) => setDotColor0(color)}
+              />
+              <ColorDot
+                value={dotColor1}
+                onChange={(color) => setDotColor1(color)}
+              />
+              <ColorDot
+                value={dotColor2}
+                onChange={(color) => setDotColor2(color)}
+              />
+              <ColorDot
+                value={dotColor3}
+                onChange={(color) => setDotColor3(color)}
+              />
+              <ColorDot
+                value={dotColor4}
+                onChange={(color) => setDotColor4(color)}
+              />
+              <Button onClick={() => handleRandomColors()}>Random</Button>
+            </ColorsSection>
+          </Settings>
+          <SidebarFooter>
+            <Sponsors href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
               <svg
-                width="20"
-                height="25"
-                viewBox="0 0 20 25"
-                fill="none"
-                alt="Clerk.dev logo"
                 xmlns="http://www.w3.org/2000/svg"
+                width="60"
+                viewBox="0 0 77 24"
+                fill="none"
               >
                 <path
-                  d="M19.8238 3.27783L16.8365 6.26504C16.7427 6.3588 16.62 6.41834 16.4883 6.43409C16.3565 6.44985 16.2233 6.4209 16.11 6.35192C14.9349 5.64303 13.5797 5.28949 12.2081 5.33398C10.8364 5.37848 9.50703 5.81911 8.38035 6.60266C7.68742 7.08498 7.08575 7.68666 6.60342 8.37959C5.82079 9.50695 5.38059 10.8364 5.33575 12.2081C5.29091 13.5798 5.64336 14.9351 6.35069 16.1112C6.41919 16.2244 6.44785 16.3571 6.43211 16.4885C6.41637 16.6198 6.35712 16.7421 6.26382 16.8358L3.27661 19.823C3.21646 19.8835 3.14393 19.9304 3.06399 19.9603C2.98405 19.9902 2.8986 20.0025 2.81347 19.9963C2.72834 19.9901 2.64556 19.9657 2.57079 19.9245C2.49601 19.8833 2.43102 19.8265 2.38025 19.7578C0.763981 17.5362 -0.0713046 14.842 0.0047725 12.0958C0.0808496 9.34949 1.06401 6.70567 2.80079 4.57696C3.33101 3.92565 3.92641 3.33024 4.57772 2.80003C6.70627 1.06372 9.34971 0.080849 12.0956 0.00477376C14.8414 -0.0713015 17.5352 0.763699 19.7566 2.37949C19.8258 2.43008 19.883 2.49506 19.9245 2.56994C19.9661 2.64481 19.9908 2.72779 19.9973 2.81318C20.0037 2.89857 19.9915 2.98433 19.9615 3.06455C19.9315 3.14476 19.8846 3.21753 19.8238 3.27783Z"
-                  fill="url(#paint0_linear_1023_320)"
-                />
-                <path
-                  d="M19.8202 21.6001L16.8329 18.6129C16.7391 18.5191 16.6164 18.4596 16.4847 18.4438C16.353 18.4281 16.2197 18.457 16.1064 18.526C14.9984 19.1943 13.729 19.5476 12.4351 19.5476C11.1411 19.5476 9.87172 19.1943 8.76375 18.526C8.65041 18.457 8.5172 18.4281 8.38544 18.4438C8.2537 18.4596 8.13106 18.5191 8.03719 18.6129L5.04997 21.6001C4.98732 21.6603 4.9387 21.7336 4.90755 21.8147C4.87638 21.8958 4.86346 21.9828 4.86968 22.0695C4.8759 22.1562 4.90111 22.2404 4.94353 22.3162C4.98595 22.3921 5.04453 22.4576 5.11513 22.5082C7.2415 24.0554 9.80348 24.8887 12.4332 24.8887C15.0627 24.8887 17.6247 24.0554 19.7511 22.5082C19.822 22.458 19.8809 22.3926 19.9237 22.3169C19.9664 22.2412 19.992 22.1571 19.9987 22.0704C20.0052 21.9837 19.9927 21.8966 19.9619 21.8154C19.931 21.7341 19.8826 21.6606 19.8202 21.6001Z"
+                  d="M35.1481 16.7381C34.7521 17.1486 34.2765 17.4741 33.7505 17.6947C33.2245 17.9154 32.659 18.0265 32.0886 18.0213C31.6069 18.0359 31.1273 17.9517 30.6794 17.7739C30.2315 17.5961 29.8247 17.3285 29.4841 16.9875C28.8654 16.3421 28.5093 15.4206 28.5093 14.3221C28.5093 12.1231 29.941 10.619 32.0886 10.619C32.6646 10.6109 33.2353 10.7301 33.7599 10.968C34.2845 11.206 34.7501 11.5568 35.1234 11.9955L36.9816 10.3525C35.7707 8.8827 33.8059 8.12305 31.9401 8.12305C28.2885 8.12305 25.6992 10.64 25.6992 14.343C25.6992 16.1745 26.3427 17.7167 27.4279 18.8057C28.5131 19.8947 30.0591 20.5344 31.843 20.5344C34.16 20.5344 36.0087 19.5939 37.0463 18.4116L35.1481 16.7381Z"
                   fill="#1F0256"
                 />
                 <path
-                  d="M12.4416 15.9932C14.4042 15.9932 15.9955 14.4021 15.9955 12.4393C15.9955 10.4766 14.4042 8.8855 12.4416 8.8855C10.4788 8.8855 8.8877 10.4766 8.8877 12.4393C8.8877 14.4021 10.4788 15.9932 12.4416 15.9932Z"
+                  d="M38.7266 3.42773H41.4929V20.3398H38.7266V3.42773Z"
+                  fill="#1F0256"
+                />
+                <path
+                  d="M54.8179 15.2828C54.8635 14.9145 54.8889 14.5439 54.894 14.1728C54.894 10.6659 52.5979 8.12611 49.0472 8.12611C48.2641 8.11071 47.4861 8.25581 46.7612 8.55246C46.0363 8.84911 45.3797 9.29104 44.832 9.85102C43.7944 10.94 43.1719 12.4822 43.1719 14.3213C43.1719 18.07 45.8144 20.5374 49.3176 20.5374C51.6688 20.5374 53.3614 19.5855 54.3762 18.2947L52.5637 16.6897L52.4742 16.6136C52.1146 17.0634 51.6561 17.4243 51.1344 17.6683C50.6127 17.9123 50.0419 18.0328 49.4661 18.0205C47.6879 18.0205 46.4046 16.9829 46.0391 15.2828H54.8179ZM46.0848 13.0628C46.2083 12.5269 46.4613 12.0295 46.8216 11.614C47.1214 11.2874 47.4883 11.0293 47.897 10.8574C48.3058 10.6856 48.7468 10.604 49.19 10.6183C50.7702 10.6183 51.7602 11.6064 52.101 13.0628H46.0848Z"
+                  fill="#1F0256"
+                />
+                <path
+                  d="M63.445 8.08984V11.1741C63.1251 11.1494 62.8034 11.1246 62.6073 11.1246C60.513 11.1246 59.325 12.6287 59.325 14.603V20.3394H56.5625V8.2612H59.325V10.0908H59.3498C60.2884 8.80761 61.6344 8.09366 63.1004 8.09366L63.445 8.08984Z"
+                  fill="#1F0256"
+                />
+                <path
+                  d="M69.8866 15.2812L67.8894 17.5031V20.3398H65.125V3.42773H67.8894V13.8019L72.8224 8.29975H76.1046L71.7638 13.1603L76.1808 20.3398H73.0718L69.938 15.2812H69.8866Z"
+                  fill="#1F0256"
+                />
+                <path
+                  d="M19.116 3.1608L16.2354 6.04135C16.1449 6.13177 16.0266 6.18918 15.8996 6.20437C15.7725 6.21956 15.6441 6.19165 15.5348 6.12513C14.4017 5.44155 13.0949 5.10063 11.7722 5.14354C10.4495 5.18645 9.16759 5.61134 8.08114 6.36692C7.41295 6.83202 6.83276 7.41221 6.36765 8.0804C5.61297 9.16751 5.18848 10.4495 5.14524 11.7722C5.10201 13.0949 5.44187 14.4019 6.12395 15.536C6.19 15.6451 6.21764 15.7731 6.20246 15.8998C6.18728 16.0264 6.13015 16.1443 6.04018 16.2347L3.15962 19.1152C3.10162 19.1736 3.03168 19.2188 2.95459 19.2476C2.87751 19.2765 2.79511 19.2883 2.71302 19.2824C2.63093 19.2764 2.5511 19.2528 2.479 19.2131C2.40689 19.1734 2.34422 19.1186 2.29527 19.0524C0.736704 16.9101 -0.0687588 14.3121 0.0046021 11.6639C0.077963 9.01568 1.02602 6.46625 2.70079 4.41354C3.21208 3.78549 3.78622 3.21134 4.41428 2.70006C6.46683 1.02574 9.01589 0.0779624 11.6637 0.00460332C14.3115 -0.0687557 16.9091 0.736432 19.0512 2.29453C19.1179 2.34332 19.1731 2.40598 19.2131 2.47818C19.2532 2.55038 19.2771 2.6304 19.2833 2.71274C19.2895 2.79508 19.2777 2.87778 19.2488 2.95513C19.2199 3.03248 19.1746 3.10265 19.116 3.1608Z"
+                  fill="url(#paint0_linear_26568_214324)"
+                />
+                <path
+                  d="M19.1135 20.8289L16.2329 17.9483C16.1424 17.8579 16.0241 17.8005 15.8971 17.7853C15.7701 17.7701 15.6416 17.798 15.5323 17.8645C14.4639 18.509 13.2398 18.8497 11.9921 18.8497C10.7443 18.8497 9.52022 18.509 8.45181 17.8645C8.34252 17.798 8.21406 17.7701 8.08701 17.7853C7.95997 17.8005 7.84171 17.8579 7.75119 17.9483L4.87063 20.8289C4.81022 20.8869 4.76333 20.9576 4.73329 21.0358C4.70324 21.114 4.69078 21.1979 4.69678 21.2815C4.70277 21.3651 4.72708 21.4463 4.76799 21.5194C4.80889 21.5926 4.86538 21.6558 4.93346 21.7046C6.98391 23.1965 9.45442 24.0001 11.9902 24.0001C14.5259 24.0001 16.9964 23.1965 19.0469 21.7046C19.1152 21.6561 19.172 21.5931 19.2133 21.5201C19.2545 21.4471 19.2792 21.366 19.2856 21.2824C19.2919 21.1988 19.2798 21.1148 19.2501 21.0365C19.2203 20.9581 19.1737 20.8872 19.1135 20.8289V20.8289Z"
+                  fill="#1F0256"
+                />
+                <path
+                  d="M11.9973 15.4223C13.8899 15.4223 15.4243 13.888 15.4243 11.9953C15.4243 10.1027 13.8899 8.56836 11.9973 8.56836C10.1046 8.56836 8.57031 10.1027 8.57031 11.9953C8.57031 13.888 10.1046 15.4223 11.9973 15.4223Z"
                   fill="#1F0256"
                 />
                 <defs>
                   <linearGradient
-                    id="paint0_linear_1023_320"
-                    x1="17.0162"
-                    y1="-1.82393"
-                    x2="-8.17668"
-                    y2="23.3709"
+                    id="paint0_linear_26568_214324"
+                    x1="16.4087"
+                    y1="-1.75881"
+                    x2="-7.88473"
+                    y2="22.5365"
                     gradientUnits="userSpaceOnUse"
                   >
                     <stop stop-color="#17CCFC" />
@@ -465,38 +467,132 @@ const Playground = () => {
                   </linearGradient>
                 </defs>
               </svg>
-            </a>
-            <span>
-              <a href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
-                Clerk
-              </a>{" "}
-              provides drop-in authentication for React and has built-in support
-              for Boring Avatars.
-            </span>
-          </small>
-          <small>
-            <span>
-              Made by{" "}
+              {/* <svg
+                  width="18"
+                  viewBox="0 0 24 30"
+                  fill="none"
+                  alt="Clerk.dev logo"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M23.7873 3.9332L20.2028 7.51767C20.0902 7.63018 19.943 7.70162 19.785 7.72052C19.6268 7.73943 19.467 7.7047 19.331 7.62192C17.921 6.7713 16.2949 6.34707 14.6489 6.40046C13.003 6.45386 11.4079 6.98258 10.0559 7.9228C9.22444 8.50155 8.50247 9.22352 7.9237 10.055C6.9846 11.4078 6.45638 13.003 6.40257 14.649C6.34878 16.2949 6.77169 17.9213 7.62045 19.3325C7.70264 19.4683 7.73703 19.6276 7.71814 19.7852C7.69925 19.9428 7.62816 20.0895 7.51621 20.202L3.93173 23.7864C3.85956 23.859 3.77253 23.9153 3.6766 23.9511C3.58068 23.9871 3.47815 24.0018 3.376 23.9944C3.27385 23.987 3.17451 23.9576 3.08479 23.9082C2.99506 23.8588 2.91707 23.7906 2.85616 23.7082C0.916731 21.0424 -0.0855612 17.8095 0.00572671 14.5142C0.0970147 11.2188 1.27675 8.0464 3.36078 5.49207C3.99701 4.71055 4.71145 3.99609 5.49299 3.35987C8.04712 1.2764 11.2191 0.097014 14.5139 0.00572822C17.8088 -0.0855575 21.0411 0.916393 23.7067 2.85524C23.7897 2.91595 23.8584 2.99393 23.9082 3.08377C23.9581 3.17361 23.9878 3.27319 23.9955 3.37565C24.0032 3.47811 23.9886 3.58102 23.9526 3.67727C23.9166 3.77352 23.8603 3.86084 23.7873 3.9332Z"
+                    fill="url(#paint0_linear_1023_319)"
+                  />
+                  <path
+                    d="M23.7833 25.9189L20.1988 22.3343C20.0862 22.2218 19.939 22.1504 19.7809 22.1315C19.6229 22.1126 19.463 22.1473 19.327 22.2301C17.9975 23.032 16.4743 23.456 14.9217 23.456C13.369 23.456 11.8458 23.032 10.5163 22.2301C10.3803 22.1473 10.2204 22.1126 10.0623 22.1315C9.90423 22.1504 9.75707 22.2218 9.64443 22.3343L6.05995 25.9189C5.98478 25.991 5.92643 26.079 5.88905 26.1763C5.85166 26.2736 5.83616 26.378 5.84362 26.4821C5.85108 26.5861 5.88133 26.6871 5.93223 26.7781C5.98313 26.8692 6.05342 26.9478 6.13814 27.0086C8.68965 28.865 11.7639 29.865 14.9193 29.865C18.0747 29.865 21.1489 28.865 23.7005 27.0086C23.7854 26.9482 23.8561 26.8698 23.9075 26.779C23.9588 26.6881 23.9895 26.5872 23.9975 26.4832C24.0053 26.3792 23.9903 26.2746 23.9533 26.1772C23.9162 26.0796 23.8582 25.9914 23.7833 25.9189Z"
+                    fill="#1F0256"
+                  />
+                  <path
+                    d="M14.929 19.1909C17.2841 19.1909 19.1934 17.2816 19.1934 14.9264C19.1934 12.5713 17.2841 10.662 14.929 10.662C12.5738 10.662 10.6646 12.5713 10.6646 14.9264C10.6646 17.2816 12.5738 19.1909 14.929 19.1909Z"
+                    fill="#1F0256"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_1023_319"
+                      x1="20.4185"
+                      y1="-2.18861"
+                      x2="-9.81152"
+                      y2="28.0437"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#17CCFC" />
+                      <stop offset="0.5" stop-color="#5D31FF" />
+                      <stop offset="1" stop-color="#F35AFF" />
+                    </linearGradient>
+                  </defs>
+                </svg> */}
+              <p>
+                Clerk provides drop-in authentication for React and has built-in
+                support for Boring Avatars.
+              </p>
+            </Sponsors>
+          </SidebarFooter>
+        </Sidebar>
+        <div>
+          <Main>
+            <AvatarsGrid>
+              {exampleNames.map((exampleName, name) => (
+                <AvatarWrapper
+                  key={name}
+                  size={avatarSize}
+                  name={exampleName}
+                  playgroundColors={filteredColors}
+                  variant={variant}
+                  square={square}
+                />
+              ))}
+            </AvatarsGrid>
+          </Main>
+          <Footer>
+            <p>
+              Boring avatars is a tiny{" "}
               <a
-                href="https://hayk.design/"
                 target="_blank"
-                rel="noreferrer noopener"
+                href="https://github.com/boringdesigners/boring-avatars"
+                rel="noopener noreferrer"
               >
-                Hayk An
+                React library
               </a>{" "}
-              and{" "}
+              to generates custom, SVG-based avatars from any username and color
+              palette. Feel free to use it in your personal or commercial
+              projects.
+            </p>
+            <p>
+              Use this playground to change names, generate random color
+              palettes and copy the generated SVG's to use them in any design
+              tool like Figma, Sketch or your web project.
+            </p>
+            <p>
+              If you like the project, help us to keep it alive through our{" "}
               <a
-                href="https://josepmartins.com/"
                 target="_blank"
-                rel="noreferrer noopener"
+                href="https://github.com/sponsors/boringdesigners"
+                rel="noopener noreferrer"
               >
-                Josep Martins
+                GitHub sponsors page 🫶
               </a>
               .
-            </span>
-          </small>
-        </FooterMadeBy>
-      </Footer>
+            </p>
+            <p>
+              <small>
+                Names from{" "}
+                <a
+                  href="https://notablewomen.withgoogle.com/all"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Notable Women
+                </a>
+                , colors from{" "}
+                <a
+                  href="https://github.com/Jam3/nice-color-palettes"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Nice Color Palettes
+                </a>
+                . Made by{" "}
+                <a
+                  href="https://hayk.design/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Hayk An
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://josepmartins.com/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Josep Martins
+                </a>
+                .
+              </small>
+            </p>
+          </Footer>
+        </div>
+      </Layout>
     </>
   );
 };
