@@ -33,10 +33,6 @@ const Sponsors = styled.div`
   padding: var(--sp-s);
   border-radius: 0.375rem;
   gap: var(--sp-m);
-
-  p {
-    margin: 0;
-  }
 `;
 
 const CloseButton = styled(Button)`

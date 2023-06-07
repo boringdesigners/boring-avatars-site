@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { CopyBlock, atomOneLight } from "react-code-blocks";
 import styled from "styled-components";
 import {
   SegmentGroup,
@@ -12,7 +13,7 @@ import { exampleNames } from "./example-names";
 import Avatar from "boring-avatars";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useMedia } from "./hooks";
-import { Github, RoundCorner, SquareCorner, Random } from "./icons";
+import { Github, RoundCorner, SquareCorner } from "./icons";
 import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
@@ -21,14 +22,7 @@ const Sponsors = styled.a`
   display: flex;
   flex-direction: column;
   gap: var(--sp-s);
-  margin-top: var(--sp-l);
-  background-color: #e8e4ff;
-  background: linear-gradient(
-    to bottom right,
-    #e8e4ff 0%,
-    #f9f9f9 40%,
-    #e8e4ff 100%
-  );
+  background-color: #f0eeff;
   padding: var(--sp-m);
   border-radius: 0.375rem;
   gap: var(--sp-m);
@@ -42,7 +36,7 @@ const Sponsors = styled.a`
 
 const Header = styled.header`
   display: flex;
-  padding: var(--sp-m) var(--pagePadding);
+  padding: var(--sp-m) var(--sp-l);
   justify-content: space-between;
   align-items: center;
 
@@ -66,14 +60,17 @@ const Header = styled.header`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 360px 1fr;
 `;
 
 const Sidebar = styled.aside`
   height: 100vh;
   position: sticky;
   top: 20px;
-  padding: var(--sp-m) var(--pagePadding);
+  padding: var(--sp-m) var(--sp-l);
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
 `;
 
 const SidebarFooter = styled.footer`
@@ -104,7 +101,7 @@ const ColorsSection = styled.div`
   display: inline-grid;
   grid-template-columns: repeat(6, 1fr);
   max-width: max-content;
-  grid-gap: var(--sp-xs);
+  grid-gap: var(--sp-s);
 
   @media (max-width: 1080px) {
     grid-column: 0/1;
@@ -411,6 +408,33 @@ const Playground = () => {
               />
               <Button onClick={() => handleRandomColors()}>Random</Button>
             </ColorsSection>
+            <div
+              style={{
+                fontSize: "0.8rem",
+                fontWeight: 600,
+                fontFamily:
+                  "SF Mono, SFMono-Regular, ui-monospace, DejaVu Sans Mono",
+                border: "1px solid #eaecef",
+                borderRadius: "6px",
+              }}
+            >
+              <CopyBlock
+                style={{ fontSize: "0.8rem" }}
+                text={`<Avatar
+  name="John Doe"
+  size={${avatarSize}}
+  sqaure={${square}}
+  variant="${variant}"
+  colors={["${filteredColors[0]}", "${filteredColors[1]}", 
+    "${filteredColors[2]}", "${filteredColors[3]}", "${filteredColors[4]}"]}
+/>`}
+                language={"jsx"}
+                theme={atomOneLight}
+                showLineNumbers={false}
+                wrapLines={false}
+                codeBlock
+              />
+            </div>
           </Settings>
           <SidebarFooter>
             <Sponsors href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
@@ -525,7 +549,7 @@ const Playground = () => {
           </Main>
           <Footer>
             <p>
-              Boring avatars is a tiny{" "}
+              Boring Avatars is a small{" "}
               <a
                 target="_blank"
                 href="https://github.com/boringdesigners/boring-avatars"
@@ -533,17 +557,18 @@ const Playground = () => {
               >
                 React library
               </a>{" "}
-              to generates custom, SVG-based avatars from any username and color
-              palette. Feel free to use it in your personal or commercial
-              projects.
+              that generates custom SVG-based avatars from usernames and color
+              palettes. You are welcome to use it in both personal and
+              commercial projects.
             </p>
             <p>
-              Use this playground to change names, generate random color
-              palettes and copy the generated SVG's to use them in any design
-              tool like Figma, Sketch or your web project.
+              You can utilize this playground to modify names, generate random
+              color palettes, and copy the resulting SVGs for use in design
+              tools such as Figma, Sketch, or your web project.
             </p>
             <p>
-              If you like the project, help us to keep it alive through our{" "}
+              If you appreciate the project, please consider supporting through
+              our{" "}
               <a
                 target="_blank"
                 href="https://github.com/sponsors/boringdesigners"
@@ -555,7 +580,7 @@ const Playground = () => {
             </p>
             <p>
               <small>
-                Names from{" "}
+                The names are sourced from{" "}
                 <a
                   href="https://notablewomen.withgoogle.com/all"
                   target="_blank"
@@ -563,15 +588,15 @@ const Playground = () => {
                 >
                   Notable Women
                 </a>
-                , colors from{" "}
+                , and the colors from the{" "}
                 <a
                   href="https://github.com/Jam3/nice-color-palettes"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Nice Color Palettes
-                </a>
-                . Made by{" "}
+                </a>{" "}
+                collection. Made by{" "}
                 <a
                   href="https://hayk.design/"
                   target="_blank"
