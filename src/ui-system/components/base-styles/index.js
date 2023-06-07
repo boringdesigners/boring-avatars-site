@@ -20,14 +20,10 @@ const cssVariables = css`
   --c-background: hsl(0, 0%, 100%);
   --c-body: hsl(0, 0%, 20%);
   --c-body-secondary: hsl(0, 0%, 60%);
-  --c-button: hsla(0, 0%, 0%, 0.1);
+  --c-button: hsla(0, 0%, 0%, 0.08);
   --c-buttonHover: hsla(0, 0%, 0%, 0.15);
   --c-buttonActive: hsla(0, 0%, 0%, 0.2);
   --c-fade: hsla(0, 0%, 0%, 0.4);
-  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
-  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
-  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
-  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
   --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
 `;
 
