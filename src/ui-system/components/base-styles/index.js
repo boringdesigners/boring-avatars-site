@@ -25,6 +25,10 @@ const cssVariables = css`
   --c-buttonActive: hsla(0, 0%, 0%, 0.2);
   --c-fade: hsla(0, 0%, 0%, 0.4);
   --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
 `;
 
 const BaseStyles = createGlobalStyle`
