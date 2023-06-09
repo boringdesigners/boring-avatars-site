@@ -15,7 +15,7 @@ const ButtonWrapper = styled.button`
   text-transform: capitalize;
   border-radius: 50px;
   font-size: 0.7rem;
-  line-height: 1.3;
+  line-height: 1;
   font-weight: 700;
   cursor: pointer;
   user-select: none;

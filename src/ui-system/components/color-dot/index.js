@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 const PickerWrapper = styled.div`
   position: absolute;
+  z-index: 999;
   top: 2rem;
 `;
 

@@ -14,13 +14,6 @@ const SegmentGroupWrapper = styled.div`
   & > button {
     flex: 1;
   }
-
-  ${(grid) =>
-    grid.width &&
-    `display: grid; border-radius: 10px; grid-template-columns: 1fr 1fr; gap: 0.2rem;
-    & > button {
-      border-radius: 8px;  
-    `};
 `;
 
 const SegmentWrapper = styled(Button)`
@@ -30,15 +23,13 @@ const SegmentWrapper = styled(Button)`
   }
 
   ${(p) => p.isSelected && `background-color: var(--c-background)`};
-  ${(p) => !p.isSelected && `color: var(--c-fade);`};
+  ${(p) =>
+    !p.isSelected &&
+    `color: var(--c-fade); filter: grayscale(1) contrast(4) opacity(0.7)`};
 `;
 
 export const SegmentGroup = ({ children, width, grid }) => {
-  return (
-    <SegmentGroupWrapper grid={grid} width={width}>
-      {children}
-    </SegmentGroupWrapper>
-  );
+  return <SegmentGroupWrapper width={width}>{children}</SegmentGroupWrapper>;
 };
 
 const Segment = ({ children, isSelected, icon, ...props }) => {
