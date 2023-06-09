@@ -42,7 +42,9 @@ const BaseStyles = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
+    // text-decoration: none;
+    color: inherit;
+    font-weight: 600;
   }
 `;
 

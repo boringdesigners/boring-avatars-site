@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const ButtonWrapper = styled.button`
   appearance: none;
@@ -9,20 +9,20 @@ const ButtonWrapper = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 ${p => p.hasChildren && `var(--textbox-x)`};
-  width: ${p => !p.hasChildren && p.icon && `var(--buttonHeight)`};
+  padding: 0 ${(p) => p.hasChildren && `var(--textbox-x)`};
+  width: ${(p) => !p.hasChildren && p.icon && `var(--buttonHeight)`};
   background: var(--c-button);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  text-transform: capitalize;
   border-radius: 50px;
   font-size: 0.7rem;
-  line-height: 1.3;
+  line-height: 1;
   font-weight: 700;
   cursor: pointer;
   user-select: none;
   min-height: var(--buttonHeight);
   white-space: nowrap;
   transition: background-color 0.2s;
+  text-decoration: none;
 
   &:hover {
     background-color: var(--c-buttonHover);
@@ -31,7 +31,7 @@ const ButtonWrapper = styled.button`
   &:active {
     background-color: var(--c-buttonActive);
   }
-`
+`;
 
 const Button = ({ children, icon, ...props }) => {
   return (
@@ -39,7 +39,7 @@ const Button = ({ children, icon, ...props }) => {
       {children}
       {icon && icon}
     </ButtonWrapper>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

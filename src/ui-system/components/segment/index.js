@@ -8,10 +8,12 @@ const SegmentGroupWrapper = styled.div`
   padding: 0.2rem;
   border-radius: 10rem;
   display: inline-flex;
+  flex-wrap: wrap;
   ${(p) => p.width && `width: ${p.width}`};
 
   & > button {
     flex: 1;
+    ${(p) => p.fullWidth && `aspect-ratio: 1/1`};
   }
 `;
 
@@ -22,14 +24,20 @@ const SegmentWrapper = styled(Button)`
   }
 
   ${(p) => p.isSelected && `background-color: var(--c-background)`};
-  ${(p) => !p.isSelected && `color: var(--c-fade)`};
+  ${(p) =>
+    !p.isSelected &&
+    `color: var(--c-fade); filter: grayscale(1) contrast(4) opacity(0.7)`};
 `;
 
-export const SegmentGroup = ({ children, width }) => {
-  return <SegmentGroupWrapper width={width}>{children}</SegmentGroupWrapper>;
+export const SegmentGroup = ({ children, width, fullWidth }) => {
+  return (
+    <SegmentGroupWrapper fullWidth={fullWidth} width={width}>
+      {children}
+    </SegmentGroupWrapper>
+  );
 };
 
-const Segment = ({ children, isSelected, hasFullWidth, icon, ...props }) => {
+const Segment = ({ children, isSelected, icon, ...props }) => {
   return (
     <SegmentWrapper icon={icon} isSelected={isSelected} {...props}>
       {children}
