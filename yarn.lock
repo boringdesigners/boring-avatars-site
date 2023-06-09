@@ -3071,10 +3071,10 @@
   "resolved" "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz"
   "version" "1.0.0"
 
-"boring-avatars@^1.6.0":
-  "integrity" "sha512-P7BZRz1DEdx61iW7q8EoB10rDLGGH4ec8uwQsMKOCag8TznC5A/efd5OBuL9Su3HjMEDHN3X8/JRRQNsVZMl4Q=="
-  "resolved" "https://registry.npmjs.org/boring-avatars/-/boring-avatars-1.6.1.tgz"
-  "version" "1.6.1"
+"boring-avatars@^1.10.0":
+  "integrity" "sha512-P3Bot5kWHY/RStkP8+KL5RKV4uQsYnxNEv7+x772lIj+O3fYy6AiUvcgSnUqpa2nPYiCiew4g+ytdRjfTE3tgA=="
+  "resolved" "https://registry.npmjs.org/boring-avatars/-/boring-avatars-1.10.0.tgz"
+  "version" "1.10.0"
 
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="

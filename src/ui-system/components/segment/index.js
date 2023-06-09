@@ -13,6 +13,7 @@ const SegmentGroupWrapper = styled.div`
 
   & > button {
     flex: 1;
+    ${(p) => p.fullWidth && `aspect-ratio: 1/1`};
   }
 `;
 
@@ -28,8 +29,12 @@ const SegmentWrapper = styled(Button)`
     `color: var(--c-fade); filter: grayscale(1) contrast(4) opacity(0.7)`};
 `;
 
-export const SegmentGroup = ({ children, width, grid }) => {
-  return <SegmentGroupWrapper width={width}>{children}</SegmentGroupWrapper>;
+export const SegmentGroup = ({ children, width, fullWidth }) => {
+  return (
+    <SegmentGroupWrapper fullWidth={fullWidth} width={width}>
+      {children}
+    </SegmentGroupWrapper>
+  );
 };
 
 const Segment = ({ children, isSelected, icon, ...props }) => {
