@@ -90,6 +90,7 @@ const Sidebar = styled.aside`
   @media (max-width: 500px) {
     justify-content: flex-start;
     height: auto;
+    position: relative;
   }
 `;
 
