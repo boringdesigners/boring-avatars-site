@@ -25,7 +25,8 @@ const Sponsors = styled.a`
   border-radius: 0.375rem;
   text-decoration: none;
   font-weight: normal;
-  font-size: 0.75rem;
+  font-size: 0.725rem;
+  line-height: 1.4;
   transition: background-color 0.2s;
   border: 1px solid var(--c-button);
 
@@ -474,8 +475,8 @@ const Playground = () => {
                 </svg>
               </header>
               <p>
-                Integrate user authentication and built-in support for boring
-                avatars into your React application with <b>Clerk</b>
+                Adding authentication to your app? <b>Clerk</b> ships with
+                built-in support for boring avatars.
               </p>
             </Sponsors>
           </SidebarFooter>
