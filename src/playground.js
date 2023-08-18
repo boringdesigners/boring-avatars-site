@@ -27,6 +27,7 @@ const Sponsors = styled.a`
   font-weight: normal;
   font-size: 0.725rem;
   line-height: 1.4;
+  cursor: pointer;
   transition: background-color 0.2s;
   border: 1px solid var(--c-button);
 
@@ -347,7 +348,7 @@ const Playground = () => {
                   target="_blank"
                   rel="noreferrer noopener"
                 >
-                  Sponsor
+                  Become a sponsor
                 </Button>
               </div>
             </Header>
@@ -435,7 +436,7 @@ const Playground = () => {
             </Settings>
           </div>
           <SidebarFooter>
-            <Sponsors href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
+            <Sponsors href="https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023">
               <header>
                 <Avatar size={20} name="CLERK" variant="beam" />
                 <span>❤️</span>

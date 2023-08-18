@@ -178,7 +178,7 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
         .
       </p>
       <Sponsors>
-        <a href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
+        <a href="https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023">
           <svg
             width="24"
             height="30"
@@ -216,7 +216,7 @@ const AboutDialog = ({ playgroundColors, variant, ...props }) => (
           </svg>
         </a>
         <span>
-          <a href="https://clerk.com?utm_source=boringavatars&utm_medium=web&utm_campaign=sponsorship">
+          <a href="https://clerk.com?utm_source=sponsorship&utm_medium=github&utm_campaign=boringavatars&utm_content=06_12_2023">
             Clerk
           </a>{" "}
           provides drop-in authentication for React and has built-in support for
