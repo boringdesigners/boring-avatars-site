@@ -506,8 +506,8 @@ const Playground = () => {
                 rel="noreferrer noopener"
               >
                 Notable Women
-              </a>
-              , and colors from the{" "}
+              </a>{" "}
+              · Colors from the{" "}
               <a
                 href="https://github.com/Jam3/nice-color-palettes"
                 target="_blank"
@@ -515,7 +515,7 @@ const Playground = () => {
               >
                 Nice Color Palettes
               </a>{" "}
-              project. Made by{" "}
+              · Made by{" "}
               <a
                 href="https://hayk.design/"
                 target="_blank"
