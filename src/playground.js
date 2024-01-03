@@ -17,14 +17,9 @@ import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
 
-const Header = styled.header`
-  margin-bottom: 6rem;
+const Header = styled.header`  
+  max-width: 40ch;
   
-  @media (max-width: 500px) {
-    margin-bottom: var(--sp-xl);
-  }
-
-
   h1 {
     font-size: 0.875rem;
     margin: 0;
@@ -47,7 +42,7 @@ const Layout = styled.div`
   display: grid;
   grid-template-columns: 300px 1fr;
 
-  @media (max-width: 500px) {
+  @media (max-width: 920px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -56,22 +51,29 @@ const Sidebar = styled.aside`
   height: 100vh;
   position: sticky;
   top: 0;
-  padding: var(--sp-l) var(--sp-l) var(--sp-xl);
+  padding: var(--sp-l);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
     Menlo, Consolas, monospace;
   font-weight: normal;
   font-size: 0.875rem;
+  gap: var(--sp-xxl);
+  background-color: #f8f8f8;
 
-  @media (max-width: 500px) {
-    justify-content: flex-start;
+  @media (max-width: 920px) {
     height: auto;
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr 260px;  
+  }
+  
+  @media (max-width: 560px) { 
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xl);
   }
 `;
-
 
 const Main = styled.main`
   display: grid;
@@ -96,9 +98,12 @@ const Footer = styled.footer`
 
 const ColorsSection = styled.div`
   display: inline-grid;
+  align-items: center;
   grid-template-columns: repeat(6, 1fr);
-  max-width: max-content;
   grid-gap: var(--sp-s);
+  background-color: var(--c-button);
+  padding: 0.3rem 0.3rem 0.3rem 0.6rem;
+  border-radius: 10rem;
 `;
 
 const AvatarsGrid = styled.div`
@@ -219,7 +224,7 @@ const shapes = {
 const Settings = styled.section`
   display: flex;
   flex-direction: column;
-  gap: var(--sp-l);
+  gap: var(--sp-m);
 `;
 
 const ShapeSelection = styled.div`
@@ -299,115 +304,113 @@ const Playground = () => {
       <BaseStyles />
       <Layout>
         <Sidebar>
-          <div>
-            <Header>
-              <h1>Boring avatars</h1>{" "}
-              <p>
-                is an open source React library to generate unique SVG-based
-                avatars from usernames and color palettes.
-              </p>
-              <div>
-                <Button
-                  as="a"
-                  href="https://github.com/boringdesigners/boring-avatars"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label="Visit Github repository"
-                  icon={<Github />}
-                />
-                <Button
-                  as="a"
-                  href="http://www.github.com/sponsors/boringdesigners"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Become a sponsor
-                </Button>
-              </div>
-            </Header>
-            <Settings>
-              <SegmentGroup fullWidth width={variantWidth}>
-                {Object.keys(variants).map((variantItem, i) => (
-                  <Segment
-                    key={i}
-                    onClick={() => setVariant(variants[variantItem])}
-                    isSelected={variantItem === variant}
-                    icon={
-                      <Avatar
-                        variant={variants[variantItem]}
-                        size={"28"}
-                        name={variants[variantItem]}
-                        colors={
-                          variantItem === variant ? filteredColors : undefined
-                        }
-                      />
-                    }
-                  ></Segment>
-                ))}
-              </SegmentGroup>
-              <ColorsSection>
-                <ColorDot
-                  value={dotColor0}
-                  onChange={(color) => setDotColor0(color)}
-                />
-                <ColorDot
-                  value={dotColor1}
-                  onChange={(color) => setDotColor1(color)}
-                />
-                <ColorDot
-                  value={dotColor2}
-                  onChange={(color) => setDotColor2(color)}
-                />
-                <ColorDot
-                  value={dotColor3}
-                  onChange={(color) => setDotColor3(color)}
-                />
-                <ColorDot
-                  value={dotColor4}
-                  onChange={(color) => setDotColor4(color)}
-                />
-                <Button onClick={() => handleRandomColors()}>Random</Button>
-              </ColorsSection>
-              <ShapeSelection>
-                <SegmentGroup>
-                  {Object.keys(shapes).map((shapeItem, index) => (
-                    <Segment
-                      key={index}
-                      onClick={() => setSquare(shapes[shapeItem].isSquare)}
-                      isSelected={shapes[shapeItem].isSquare === square}
-                      icon={shapes[shapeItem].icon}
-                    />
-                  ))}
-                </SegmentGroup>
-                <SegmentGroup>
-                  {Object.entries(avatarSizes).map(([key, value], index) => (
-                    <Segment
-                      key={index}
-                      onClick={() => setAvatarSize(value)}
-                      aria-label={"Change size to " + value}
-                      isSelected={value === avatarSize}
-                      icon={
-                        <svg
-                          width={20}
-                          height={20}
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <rect
-                            width="100%"
-                            height="100%"
-                            transform-origin="50% 50%"
-                            transform={`scale(${(index + 1.2) * 0.28})`}
-                            rx={square ? 0 : 40}
-                          />
-                        </svg>
+          <Header>
+            <h1>Boring avatars</h1>{" "}
+            <p>
+              is an open source React library to generate unique SVG-based
+              avatars from usernames and color palettes.
+            </p>
+            <div>
+              <Button
+                as="a"
+                href="https://github.com/boringdesigners/boring-avatars"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Visit Github repository"
+                icon={<Github />}
+              />
+              <Button
+                as="a"
+                href="http://www.github.com/sponsors/boringdesigners"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Become a sponsor
+              </Button>
+            </div>
+          </Header>
+          <Settings>
+            <SegmentGroup fullWidth width={variantWidth}>
+              {Object.keys(variants).map((variantItem, i) => (
+                <Segment
+                  key={i}
+                  onClick={() => setVariant(variants[variantItem])}
+                  isSelected={variantItem === variant}
+                  icon={
+                    <Avatar
+                      variant={variants[variantItem]}
+                      size={"26"}
+                      name={variants[variantItem]}
+                      colors={
+                        variantItem === variant ? filteredColors : undefined
                       }
                     />
-                  ))}
-                </SegmentGroup>
-              </ShapeSelection>
-            </Settings>
-          </div>
+                  }
+                ></Segment>
+              ))}
+            </SegmentGroup>
+            <ColorsSection>
+              <ColorDot
+                value={dotColor0}
+                onChange={(color) => setDotColor0(color)}
+              />
+              <ColorDot
+                value={dotColor1}
+                onChange={(color) => setDotColor1(color)}
+              />
+              <ColorDot
+                value={dotColor2}
+                onChange={(color) => setDotColor2(color)}
+              />
+              <ColorDot
+                value={dotColor3}
+                onChange={(color) => setDotColor3(color)}
+              />
+              <ColorDot
+                value={dotColor4}
+                onChange={(color) => setDotColor4(color)}
+              />
+              <Button onClick={() => handleRandomColors()}>Random</Button>
+            </ColorsSection>
+            <ShapeSelection>
+              <SegmentGroup>
+                {Object.keys(shapes).map((shapeItem, index) => (
+                  <Segment
+                    key={index}
+                    onClick={() => setSquare(shapes[shapeItem].isSquare)}
+                    isSelected={shapes[shapeItem].isSquare === square}
+                    icon={shapes[shapeItem].icon}
+                  />
+                ))}
+              </SegmentGroup>
+              <SegmentGroup>
+                {Object.entries(avatarSizes).map(([key, value], index) => (
+                  <Segment
+                    key={index}
+                    onClick={() => setAvatarSize(value)}
+                    aria-label={"Change size to " + value}
+                    isSelected={value === avatarSize}
+                    icon={
+                      <svg
+                        width={20}
+                        height={20}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <rect
+                          width="100%"
+                          height="100%"
+                          transform-origin="50% 50%"
+                          transform={`scale(${(index + 1.2) * 0.28})`}
+                          rx={square ? 0 : 40}
+                        />
+                      </svg>
+                    }
+                  />
+                ))}
+              </SegmentGroup>
+            </ShapeSelection>
+          </Settings>
         </Sidebar>
         <div>
           <Main>

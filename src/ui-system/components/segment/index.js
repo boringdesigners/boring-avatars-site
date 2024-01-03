@@ -20,7 +20,7 @@ const SegmentGroupWrapper = styled.div`
 const SegmentWrapper = styled(Button)`
   &:not(:hover) {
     background-color: ${(p) =>
-      p.isSelected ? `var(--c-background)` : `transparent`};
+    p.isSelected ? `var(--c-background)` : `transparent`};
   }
 
   ${(p) => p.isSelected && `background-color: var(--c-background)`};

@@ -6,6 +6,7 @@ const cssVariables = css`
   --sp-m: 1rem;
   --sp-l: 1.5rem;
   --sp-xl: 3rem;
+  --sp-xxl: 4rem;
 
   --textbox-x: 0.8rem;
   --textbox-y: 0.4rem;

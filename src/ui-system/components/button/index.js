@@ -19,7 +19,7 @@ const ButtonWrapper = styled.button`
   font-weight: 700;
   cursor: pointer;
   user-select: none;
-  min-height: var(--buttonHeight);
+  height: var(--buttonHeight);
   white-space: nowrap;
   transition: background-color 0.2s;
   text-decoration: none;

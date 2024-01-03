@@ -8,8 +8,9 @@ const DotWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-  aspect-ratio: 1;
-  border-radius: 10rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50px;
   cursor: pointer;
 `;
 
