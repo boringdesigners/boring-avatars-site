@@ -17,9 +17,9 @@ import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
 
-const Header = styled.header`  
+const Header = styled.header`
   max-width: 40ch;
-  
+
   h1 {
     font-size: 0.875rem;
     margin: 0;
@@ -65,10 +65,10 @@ const Sidebar = styled.aside`
     height: auto;
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 260px;  
+    grid-template-columns: 1fr 260px;
   }
-  
-  @media (max-width: 560px) { 
+
+  @media (max-width: 560px) {
     display: flex;
     flex-direction: column;
     gap: var(--sp-xl);
@@ -321,11 +321,11 @@ const Playground = () => {
               />
               <Button
                 as="a"
-                href="http://www.github.com/sponsors/boringdesigners"
+                href="https://boringdesigners.gumroad.com/l/boring-avatars-service"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Become a sponsor
+                API Service
               </Button>
             </div>
           </Header>
