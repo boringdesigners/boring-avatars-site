@@ -308,17 +308,15 @@ const Playground = () => {
             <h1>Boring avatars</h1>{" "}
             <p>
               is an open source React library to generate unique SVG-based
-              avatars from usernames and color palettes.
+              avatars from usernames and color palettes
             </p>
             <div>
               <Button
                 as="a"
                 href="https://github.com/boringdesigners/boring-avatars"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Visit Github repository"
-                icon={<Github />}
-              />
+              >
+                React library
+              </Button>
               <Button
                 as="a"
                 href="https://boringdesigners.gumroad.com/l/boring-avatars-service"
