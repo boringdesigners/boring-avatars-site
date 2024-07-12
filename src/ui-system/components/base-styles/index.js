@@ -26,6 +26,7 @@ const cssVariables = css`
   --c-buttonActive: hsla(0, 0%, 0%, 0.2);
   --c-fade: hsla(0, 0%, 0%, 0.4);
   --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-backgroundCode: hsla(0, 0%, 0%, 0.05);
 `;
 
 const BaseStyles = createGlobalStyle`
@@ -40,10 +41,14 @@ const BaseStyles = createGlobalStyle`
   body {
     background-color: var(--c-background);
     color: var(--c-body);
+    font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+      Menlo, Consolas, monospace;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
 
   a {
-    // text-decoration: none;
     color: inherit;
     font-weight: 600;
   }
