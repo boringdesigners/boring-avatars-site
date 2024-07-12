@@ -102,6 +102,12 @@ const AvatarWrapper = styled.div`
   }
 `;
 
+const MainCTA = styled.div`
+  display: flex;
+  gap: var(--sp-s);
+  flexwrap: wrap;
+`;
+
 const colors = ["#0a0310", "#49007e", "#ff005b", "#ff7d10", "#ffb238"];
 const size = 50;
 const variants = ["marble", "beam", "pixel", "sunset", "bauhaus", "ring"];
@@ -136,11 +142,10 @@ const Readme = () => {
           ))}
         </AvatarWrapper>
         <p>
-          Boring avatars is an open source free React library and a paid API
-          service to generate unique SVG-based avatars from usernames and color
-          palettes.
+          Boring avatars is an open source React library and API service that
+          generates unique SVG-based avatars from usernames and color palettes.
         </p>
-        <div style={{ display: "flex", gap: "var(--sp-s)", flexWrap: "wrap" }}>
+        <MainCTA>
           <Button
             as="a"
             href="https://github.com/boringdesigners/boring-avatars"
@@ -157,7 +162,7 @@ const Readme = () => {
           >
             API Service <Badge variant="paid">Paid</Badge>
           </Button>
-        </div>
+        </MainCTA>
         <h2 id="react">React</h2>
         <h3>Installation</h3>
         <Pre>
