@@ -23,7 +23,7 @@ const Navigation = styled.nav`
 
 const App = () => (
   <Router>
-    <Navigation>
+    {/* <Navigation>
       <ul>
         <li>
           <Link to="/">Readme</Link>
@@ -32,7 +32,7 @@ const App = () => (
           <Link to="/playground">Playground</Link>
         </li>
       </ul>
-    </Navigation>
+    </Navigation> */}
     <Routes>
       <Route path="/" element={<Readme />} />
       <Route path="/playground" element={<Playground />} />
