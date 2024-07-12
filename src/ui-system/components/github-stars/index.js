@@ -37,7 +37,7 @@ const GitHubStars = ({ user, repo }) => {
   return (
     <GitHubStarsWrapper>
       <b>★</b>
-      {stars !== null ? formattedStars : null}
+      {stars !== null ? formattedStars : "-.-"}
     </GitHubStarsWrapper>
   );
 };
