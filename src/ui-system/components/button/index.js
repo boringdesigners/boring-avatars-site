@@ -23,6 +23,11 @@ const ButtonWrapper = styled.button`
   white-space: nowrap;
   transition: background-color 0.2s;
   text-decoration: none;
+  gap: var(--sp-s);
+
+  &:has(svg):has(span) {
+    padding-left: var(--sp-s);
+  }
 
   &:hover {
     background-color: var(--c-buttonHover);
@@ -36,8 +41,8 @@ const ButtonWrapper = styled.button`
 const Button = ({ children, icon, ...props }) => {
   return (
     <ButtonWrapper icon={icon} hasChildren={children} {...props}>
-      {children}
       {icon && icon}
+      {children}
     </ButtonWrapper>
   );
 };

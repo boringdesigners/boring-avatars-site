@@ -11,96 +11,31 @@ import colors from "nice-color-palettes/1000";
 import { exampleNames } from "./example-names";
 import Avatar from "boring-avatars";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useMedia } from "./hooks";
-import { Github, RoundCorner, SquareCorner } from "./icons";
+import { RoundCorner, SquareCorner } from "./icons";
 import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
 
-const Header = styled.header`
-  max-width: 40ch;
-
-  h1 {
-    font-size: 0.875rem;
-    margin: 0;
-    display: inline;
-  }
-
-  p {
-    display: inline;
-  }
-
-  div {
-    margin-top: var(--sp-m);
-    display: flex;
-    align-items: center;
-    gap: var(--sp-s);
-  }
-`;
-
-const Layout = styled.div`
-  display: grid;
-  grid-template-columns: 300px 1fr;
-
-  @media (max-width: 920px) {
-    grid-template-columns: 1fr;
-  }
-`;
+const Layout = styled.div``;
 
 const Sidebar = styled.aside`
-  height: 100vh;
   position: sticky;
   top: 0;
-  padding: var(--sp-l);
   display: flex;
-  flex-direction: column;
-  font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
-    Menlo, Consolas, monospace;
-  font-weight: normal;
-  font-size: 0.875rem;
-  gap: var(--sp-xxl);
-  background-color: #f8f8f8;
-
-  @media (max-width: 920px) {
-    height: auto;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 260px;
-  }
-
-  @media (max-width: 560px) {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-xl);
-  }
+  gap: var(--sp-m);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: var(--sp-xl) var(--sp-l);
 `;
 
 const Main = styled.main`
   display: grid;
 `;
 
-const Footer = styled.footer`
-  padding: var(--sp-m) var(--pagePadding) var(--sp-xl);
-
-  h2 {
-    font-size: 0.75rem;
-    margin: 0;
-  }
-
-  p {
-    font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
-      Menlo, Consolas, monospace;
-    font-weight: normal;
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-`;
-
 const ColorsSection = styled.div`
-  display: inline-grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: var(--sp-s);
+  gap: var(--sp-s);
   background-color: var(--c-button);
   padding: 0.3rem 0.3rem 0.3rem 0.6rem;
   border-radius: 10rem;
@@ -221,12 +156,6 @@ const shapes = {
   },
 };
 
-const Settings = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-m);
-`;
-
 const ShapeSelection = styled.div`
   display: grid;
   grid-gap: var(--sp-s);
@@ -280,7 +209,7 @@ const Playground = () => {
     const color3 = colorRange[3].replace("#", "");
     const color4 = colorRange[4].replace("#", "");
 
-    navigate(`${color0}-${color1}-${color2}-${color3}-${color4}`);
+    navigate(`.?${color0}-${color1}-${color2}-${color3}-${color4}`);
   };
   useEffect(() => {
     setDotColor0(playgroundColors[0]);
@@ -293,122 +222,91 @@ const Playground = () => {
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
   const [variant, setVariant] = useState(variants.beam);
 
-  const variantWidth = useMedia(
-    ["(max-width: 1080px)", "(min-width: 1080px)"],
-    ["100%", "auto"],
-    "auto"
-  );
-
   return (
     <>
       <BaseStyles />
       <Layout>
         <Sidebar>
-          <Header>
-            <h1>Boring avatars</h1>{" "}
-            <p>
-              is an open source React library to generate unique SVG-based
-              avatars from usernames and color palettes
-            </p>
-            <div>
-              <Button
-                as="a"
-                href="https://github.com/boringdesigners/boring-avatars"
+          <SegmentGroup fullWidth>
+            {Object.keys(variants).map((variantItem, i) => (
+              <Segment
+                key={i}
+                onClick={() => setVariant(variants[variantItem])}
+                isSelected={variantItem === variant}
+                icon={
+                  <Avatar
+                    variant={variants[variantItem]}
+                    size={20}
+                    name={variants[variantItem]}
+                    colors={filteredColors}
+                  />
+                }
               >
-                React library
-              </Button>
-              <Button
-                as="a"
-                href="https://boringdesigners.gumroad.com/l/boring-avatars-service"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                API Service
-              </Button>
-            </div>
-          </Header>
-          <Settings>
-            <SegmentGroup fullWidth width={variantWidth}>
-              {Object.keys(variants).map((variantItem, i) => (
+                {variantItem}
+              </Segment>
+            ))}
+          </SegmentGroup>
+          <ColorsSection>
+            <ColorDot
+              value={dotColor0}
+              onChange={(color) => setDotColor0(color)}
+            />
+            <ColorDot
+              value={dotColor1}
+              onChange={(color) => setDotColor1(color)}
+            />
+            <ColorDot
+              value={dotColor2}
+              onChange={(color) => setDotColor2(color)}
+            />
+            <ColorDot
+              value={dotColor3}
+              onChange={(color) => setDotColor3(color)}
+            />
+            <ColorDot
+              value={dotColor4}
+              onChange={(color) => setDotColor4(color)}
+            />
+            <Button onClick={() => handleRandomColors()}>Random</Button>
+          </ColorsSection>
+          <ShapeSelection>
+            <SegmentGroup>
+              {Object.keys(shapes).map((shapeItem, index) => (
                 <Segment
-                  key={i}
-                  onClick={() => setVariant(variants[variantItem])}
-                  isSelected={variantItem === variant}
-                  icon={
-                    <Avatar
-                      variant={variants[variantItem]}
-                      size={"26"}
-                      name={variants[variantItem]}
-                      colors={
-                        variantItem === variant ? filteredColors : undefined
-                      }
-                    />
-                  }
-                ></Segment>
+                  key={index}
+                  onClick={() => setSquare(shapes[shapeItem].isSquare)}
+                  isSelected={shapes[shapeItem].isSquare === square}
+                  icon={shapes[shapeItem].icon}
+                />
               ))}
             </SegmentGroup>
-            <ColorsSection>
-              <ColorDot
-                value={dotColor0}
-                onChange={(color) => setDotColor0(color)}
-              />
-              <ColorDot
-                value={dotColor1}
-                onChange={(color) => setDotColor1(color)}
-              />
-              <ColorDot
-                value={dotColor2}
-                onChange={(color) => setDotColor2(color)}
-              />
-              <ColorDot
-                value={dotColor3}
-                onChange={(color) => setDotColor3(color)}
-              />
-              <ColorDot
-                value={dotColor4}
-                onChange={(color) => setDotColor4(color)}
-              />
-              <Button onClick={() => handleRandomColors()}>Random</Button>
-            </ColorsSection>
-            <ShapeSelection>
-              <SegmentGroup>
-                {Object.keys(shapes).map((shapeItem, index) => (
-                  <Segment
-                    key={index}
-                    onClick={() => setSquare(shapes[shapeItem].isSquare)}
-                    isSelected={shapes[shapeItem].isSquare === square}
-                    icon={shapes[shapeItem].icon}
-                  />
-                ))}
-              </SegmentGroup>
-              <SegmentGroup>
-                {Object.entries(avatarSizes).map(([key, value], index) => (
-                  <Segment
-                    key={index}
-                    onClick={() => setAvatarSize(value)}
-                    aria-label={"Change size to " + value}
-                    isSelected={value === avatarSize}
-                    icon={
-                      <svg
-                        width={20}
-                        height={20}
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <rect
-                          width="100%"
-                          height="100%"
-                          transform-origin="50% 50%"
-                          transform={`scale(${(index + 1.2) * 0.28})`}
-                          rx={square ? 0 : 40}
-                        />
-                      </svg>
-                    }
-                  />
-                ))}
-              </SegmentGroup>
-            </ShapeSelection>
-          </Settings>
+            <SegmentGroup>
+              {Object.entries(avatarSizes).map(([key, value], index) => (
+                <Segment
+                  key={index}
+                  onClick={() => setAvatarSize(value)}
+                  aria-label={"Change size to " + value}
+                  isSelected={value === avatarSize}
+                  icon={
+                    <svg
+                      width={20}
+                      height={20}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <rect
+                        width="100%"
+                        height="100%"
+                        transform-origin="50% 50%"
+                        transform={`scale(${(index + 1.2) * 0.28})`}
+                        rx={square ? 0 : 40}
+                      />
+                    </svg>
+                  }
+                />
+              ))}
+            </SegmentGroup>
+          </ShapeSelection>
         </Sidebar>
         <div>
           <Main>
@@ -425,43 +323,6 @@ const Playground = () => {
               ))}
             </AvatarsGrid>
           </Main>
-          <Footer>
-            <p>
-              Names from{" "}
-              <a
-                href="https://notablewomen.withgoogle.com/all"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Notable Women
-              </a>{" "}
-              · Colors from the{" "}
-              <a
-                href="https://github.com/Jam3/nice-color-palettes"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Nice Color Palettes
-              </a>{" "}
-              · Made by{" "}
-              <a
-                href="https://hayk.design/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Hayk An
-              </a>{" "}
-              and{" "}
-              <a
-                href="https://josepmartins.com/"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                Josep Martins
-              </a>
-              .
-            </p>
-          </Footer>
         </div>
       </Layout>
     </>
