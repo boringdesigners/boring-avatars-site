@@ -22,26 +22,22 @@ const Navigation = styled.nav`
 `;
 
 const App = () => (
-  <>
-    <BaseStyles />
-    <Router>
-      <Navigation>
-        <ul>
-          <li>
-            <Link to="/">Readme</Link>
-          </li>
-          <li>
-            <Link to="/playground">Playground</Link>
-          </li>
-        </ul>
-      </Navigation>
-      <Routes>
-        <Route path="/" element={<Readme />} />
-        <Route path="/playground" element={<Playground />} />
-        <Route path="/readme" element={<Readme />} />
-      </Routes>
-    </Router>
-  </>
+  <Router>
+    <Navigation>
+      <ul>
+        <li>
+          <Link to="/">Readme</Link>
+        </li>
+        <li>
+          <Link to="/playground">Playground</Link>
+        </li>
+      </ul>
+    </Navigation>
+    <Routes>
+      <Route path="/" element={<Readme />} />
+      <Route path="/playground" element={<Playground />} />
+    </Routes>
+  </Router>
 );
 
 export default App;
