@@ -346,6 +346,11 @@ const Readme = () => {
               src="https://boringavatars.com/api/avatar?name=Josep%20Martins&square"
               crossOrigin="anonymous"
             />
+            <img
+              alt=""
+              src="https://boring-domain.vercel.app/api/avatar?name=Maria%20Mitchell"
+              crossOrigin="anonymous"
+            />
           </a>
           .
         </p>
