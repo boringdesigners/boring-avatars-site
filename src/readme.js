@@ -341,6 +341,10 @@ const Readme = () => {
           <a href="https://josepmartins.com/">
             <Avatar name="Josep Martins" size="1em" colors={colors} />
             Josep Martins
+            <img
+              alt=""
+              src="https://boringavatars.com//api/avatar?name=Josep%20Martins"
+            />
           </a>
           .
         </p>
