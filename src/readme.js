@@ -343,7 +343,8 @@ const Readme = () => {
             Josep Martins
             <img
               alt=""
-              src="https://boringavatars.com//api/avatar?name=Josep%20Martins"
+              src="https://boringavatars.com/api/avatar?name=Josep%20Martins&square"
+              crossOrigin="anonymous"
             />
           </a>
           .
