@@ -24,7 +24,8 @@ const ReadmeWrapper = styled.div`
     margin-top: var(--sp-xxl);
   }
 
-  p svg {
+  p svg,
+  p img {
     vertical-align: middle;
     margin-right: 5px;
     position: relative;
