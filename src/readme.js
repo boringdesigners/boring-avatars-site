@@ -254,7 +254,7 @@ const Readme = () => {
           used directly in a <code>img</code> tag.
         </p>
         <Pre>
-          <code>{`<img src="{YOUR_DOMAIN/}/api/avatar" crossorigin />`}</code>
+          <code>{`<img src="https://boring-domain.vercel.app/api/avatar" crossorigin />`}</code>
         </Pre>
         <p>
           Use <code>crossorigin</code> to make sure the request uses CORS
@@ -267,7 +267,7 @@ const Readme = () => {
           be the username, email or any random string.
         </p>
         <Pre>
-          <code>{`{YOUR_DOMAIN}/api/avatar?name=Maria%20Mitchell`}</code>
+          <code>{`https://boring-domain.vercel.app/api/avatar?name=Maria%20Mitchell`}</code>
         </Pre>
         <h4>Variant</h4>
         <p>
@@ -277,7 +277,7 @@ const Readme = () => {
           <code>ring</code> and <code>bauhaus</code>.
         </p>
         <Pre>
-          <code>{`{YOUR_DOMAIN}/api/avatar?variant=beam`}</code>
+          <code>{`https://boring-domain.vercel.app/api/avatar?variant=beam`}</code>
         </Pre>
         <h4>Size</h4>
         <p>
@@ -285,7 +285,7 @@ const Readme = () => {
           avatar.
         </p>
         <Pre>
-          <code>{`{YOUR_DOMAIN}/api/avatar?variant=marble&size=240`}</code>
+          <code>{`https://boring-domain.vercel.app/api/avatar?variant=marble&size=240`}</code>
         </Pre>
         <h4>Colors</h4>
         <p>
@@ -294,7 +294,7 @@ const Readme = () => {
         </p>
         <Pre>
           <code>
-            {`{YOUR_DOMAIN}/api/avatar?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`}
+            {`https://boring-domain.vercel.app/api/avatar?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`}
           </code>
         </Pre>
         <h4>Square</h4>
@@ -302,7 +302,7 @@ const Readme = () => {
           The <code>square</code> parameter is used to make the avatar square.
         </p>
         <Pre>
-          <code>{`{YOUR_DOMAIN}/api/avatar?square`}</code>
+          <code>{`https://boring-domain.vercel.app/api/avatar?square`}</code>
         </Pre>
         <h4>Random</h4>
         <p>
@@ -311,7 +311,7 @@ const Readme = () => {
           80*80px <code>size</code> and the <code>marble</code> variant.
         </p>
         <Pre>
-          <code>{`{YOUR_DOMAIN}/api/avatar`}</code>
+          <code>{`https://boring-domain.vercel.app/api/avatar`}</code>
         </Pre>
         <h4>Notes</h4>
         <p>
@@ -339,18 +339,13 @@ const Readme = () => {
           </a>{" "}
           and{" "}
           <a href="https://josepmartins.com/">
-            <Avatar name="Josep Martins" size="1em" colors={colors} />
+            {/* <Avatar name="Josep Martins" size="1em" colors={colors} /> */}
+            <img
+              alt=""
+              src="https://boring-domain.vercel.app/api/avatar?name=Josep%20Martins&size=14"
+              crossOrigin="anonymous"
+            />
             Josep Martins
-            <img
-              alt=""
-              src="https://boringavatars.com/api/avatar?name=Josep%20Martins&square"
-              crossOrigin="anonymous"
-            />
-            <img
-              alt=""
-              src="https://boring-domain.vercel.app/api/avatar?name=Maria%20Mitchell"
-              crossOrigin="anonymous"
-            />
           </a>
           .
         </p>
