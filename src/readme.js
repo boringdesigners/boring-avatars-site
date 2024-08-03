@@ -258,8 +258,8 @@ const Readme = () => {
           <code>{`<img src="https://api.boringavatars.dev/api/avatar" crossorigin />`}</code>
         </Pre>
         <p>
-          Use <code>crossorigin</code> to make sure the request uses CORS
-          headers and the credential flag is set to 'same-origin'.
+          Use the <code>crossorigin</code> property to make sure the request
+          uses CORS headers.
         </p>
         <h3>Props</h3>
         <h4>Name</h4>
