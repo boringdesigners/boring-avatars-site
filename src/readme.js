@@ -244,66 +244,76 @@ const Readme = () => {
           <li>Pro: up to 500k monthly requests</li>
         </ul>
         <p>
-          <a href="mailto:jsp.mrtns@gmail.com">Contact us</a> for usage above
-          500k monthly requests or custom plans.
+          For higher usage, please{" "}
+          <a href="mailto:jsp.mrtns@gmail.com">contact us</a>.
         </p>
         <h3>Usage</h3>
         <p>
           During the checkout process, we will ask you for the domain where you
-          will use the API. After the payment is completed, all requests using
-          the following endpoint will return an SVG-based image stream to be
-          used directly in a <code>img</code> tag.
+          will use the API (Up to 1 production and 1 development domain per
+          plan). After the payment is completed, we will create a custom
+          endpoint domain specifically for your needs. You will receive an email
+          with all the necessary information and instructions within 24 hours to
+          get started.
+        </p>
+        <p>
+          With the custom domain, you can generate avatars by using the
+          following URL:
         </p>
         <Pre>
-          <code>{`<img src="https://api.boringavatars.dev/api/avatar" crossorigin />`}</code>
+          <code>{`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square`}</code>
         </Pre>
         <p>
-          Use the <code>crossorigin</code> property to make sure the request
+          Use the URL in an <code>img</code> tag to display the avatar in your
+          application.
+        </p>
+        <Pre>
+          <code>{`<img src="{CUSTOM_DOMAIN}" crossorigin />`}</code>
+        </Pre>
+        <p>
+          Add the <code>crossorigin</code> property to make sure the request
           uses CORS headers.
         </p>
         <h3>Props</h3>
         <h4>Name</h4>
         <p>
-          The <code>name</code> parameter is used to generate the avatar. It can
-          be the username, email or any random string.
+          Use the <code>name</code> parameter to generate a unique avatar
+          design. It can be the username, email or any random string.
         </p>
         <Pre>
-          <code>{`https://api.boringavatars.dev/api/avatar?name=Maria%20Mitchell`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?name=Maria%20Mitchell" crossorigin />`}</code>
         </Pre>
         <h4>Variant</h4>
         <p>
-          The <code>variant</code> parameter is used to change the theme of the
+          Use the <code>variant</code> parameter to change the theme of the
           avatar. The available variants are: <code>marble</code>,{" "}
           <code>beam</code>, <code>pixel</code>, <code>sunset</code>,{" "}
           <code>ring</code> and <code>bauhaus</code>.
         </p>
         <Pre>
-          <code>{`https://api.boringavatars.dev/api/avatar?variant=beam`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?variant=beam" crossorigin />`}</code>
         </Pre>
         <h4>Size</h4>
         <p>
-          The <code>size</code> parameter is used to change the size of the
-          avatar.
+          Use the <code>size</code> parameter to change the size of the avatar.
         </p>
         <Pre>
-          <code>{`https://api.boringavatars.dev/api/avatar?variant=marble&size=240`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?size=240" crossorigin />`}</code>
         </Pre>
         <h4>Colors</h4>
         <p>
-          The <code>colors</code> parameter is used to change the color palette
-          of the avatar.
+          Use the <code>colors</code> parameter to change the color palette of
+          the avatar.
         </p>
         <Pre>
-          <code>
-            {`https://api.boringavatars.dev/api/avatar?colors=264653,2a9d8f,e9c46a,f4a261,e76f51`}
-          </code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51" crossorigin />`}</code>
         </Pre>
         <h4>Square</h4>
         <p>
-          The <code>square</code> parameter is used to make the avatar square.
+          Use the <code>square</code> parameter to make the avatar square.
         </p>
         <Pre>
-          <code>{`https://api.boringavatars.dev/api/avatar?square`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?square crossorigin />`}</code>
         </Pre>
         <h4>Random</h4>
         <p>
@@ -312,13 +322,11 @@ const Readme = () => {
           80*80px <code>size</code> and the <code>marble</code> variant.
         </p>
         <Pre>
-          <code>{`https://api.boringavatars.dev/api/avatar`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN} crossorigin />`}</code>
         </Pre>
-        <h4>Notes</h4>
         <p>
-          After the checkout, the API will be available for the domain you
-          provided during the next 24 hours. If you need to change the domain,
-          please <a href="mailto:jsp.mrtns@gmail.com">contact us</a>.
+          If you have any questions or need help, please{" "}
+          <a href="mailto:jsp.mrtns@gmail.com">contact us</a>.
         </p>
 
         <h2 id="credits">Credits</h2>
