@@ -78,6 +78,7 @@ const Pre = styled.pre`
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
+  white-space: break-spaces;
 
   & + h2,
   & + h3,
@@ -260,7 +261,7 @@ const Readme = () => {
           With the custom domain, you can generate avatars by using the
           following URL:
         </p>
-        <Pre style={{ whiteSpace: "break-spaces" }}>
+        <Pre>
           <code>{`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square`}</code>
         </Pre>
         <p>
