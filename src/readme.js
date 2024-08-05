@@ -268,7 +268,7 @@ const Readme = () => {
           application.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}" crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}" crossorigin>`}</code>
         </Pre>
         <p>
           Add the <code>crossorigin</code> property to make sure the request
@@ -281,7 +281,7 @@ const Readme = () => {
           design. It can be the username, email or any random string.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}?name=Maria%20Mitchell" crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?name=Maria%20Mitchell" crossorigin>`}</code>
         </Pre>
         <h4>Variant</h4>
         <p>
@@ -291,14 +291,14 @@ const Readme = () => {
           <code>ring</code> and <code>bauhaus</code>.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}?variant=beam" crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?variant=beam" crossorigin>`}</code>
         </Pre>
         <h4>Size</h4>
         <p>
           Use the <code>size</code> parameter to change the size of the avatar.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}?size=240" crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?size=240" crossorigin>`}</code>
         </Pre>
         <h4>Colors</h4>
         <p>
@@ -306,14 +306,14 @@ const Readme = () => {
           the avatar.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51" crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?colors=264653,2a9d8f,e9c46a,f4a261,e76f51" crossorigin>`}</code>
         </Pre>
         <h4>Square</h4>
         <p>
           Use the <code>square</code> parameter to make the avatar square.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN}?square crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN}?square crossorigin>`}</code>
         </Pre>
         <h4>Random</h4>
         <p>
@@ -322,7 +322,7 @@ const Readme = () => {
           80*80px <code>size</code> and the <code>marble</code> variant.
         </p>
         <Pre>
-          <code>{`<img src="{CUSTOM_DOMAIN} crossorigin />`}</code>
+          <code>{`<img src="{CUSTOM_DOMAIN} crossorigin>`}</code>
         </Pre>
         <p>
           If you have any questions or need help, please{" "}
