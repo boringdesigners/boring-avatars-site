@@ -260,7 +260,7 @@ const Readme = () => {
           With the custom domain, you can generate avatars by using the
           following URL:
         </p>
-        <Pre>
+        <Pre style={{ whiteSpace: "break-spaces" }}>
           <code>{`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square`}</code>
         </Pre>
         <p>
