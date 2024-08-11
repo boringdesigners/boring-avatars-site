@@ -250,31 +250,30 @@ const Readme = () => {
         </p>
         <h3>Usage</h3>
         <p>
-          During the checkout process, we will ask you for the domain where you
-          will use the API (Up to 1 production and 1 development domain per
-          plan). After the payment is completed, we will create a custom
-          endpoint domain specifically for your needs. You will receive an email
-          with all the necessary information and instructions within 24 hours to
-          get started.
+          Our API is set up to respond only to requests from your specified
+          domain using CORS (Cross-Origin Resource Sharing) validation, ensuring
+          it works exclusively where you need it.
         </p>
         <p>
-          With the custom domain, you can generate avatars by using the
-          following URL:
+          During checkout, you'll provide one production and one development
+          domain where you intend to use the API. we'll create a custom endpoint
+          for you and send an email with further instructions within 24 hours.
+        </p>
+        <p>
+          With your custom domain, you can start generating avatars using the
+          provided URL.
         </p>
         <Pre>
           <code>{`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square`}</code>
         </Pre>
         <p>
-          Use the URL in an <code>img</code> tag to display the avatar in your
-          application.
+          Use the URL in an <code>img</code> tag with the{" "}
+          <code>crossorigin</code> property to make sure the request uses CORS
+          headers.
         </p>
         <Pre>
           <code>{`<img src="{CUSTOM_DOMAIN}" crossorigin>`}</code>
         </Pre>
-        <p>
-          Add the <code>crossorigin</code> property to make sure the request
-          uses CORS headers.
-        </p>
         <h3>Props</h3>
         <h4>Name</h4>
         <p>
