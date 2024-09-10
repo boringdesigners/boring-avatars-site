@@ -6,17 +6,42 @@ import {
   Button,
   BaseStyles,
   ColorDot,
+  Footer,
 } from "./ui-system";
 import colors from "nice-color-palettes/1000";
 import { exampleNames } from "./example-names";
 import Avatar from "boring-avatars";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { RoundCorner, SquareCorner } from "./icons";
-import { useNavigate } from "react-router-dom";
 
 const paletteColors = colors;
 
 const Layout = styled.div``;
+
+const Code = styled.div`
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--sp-m);
+  padding: var(--sp-m) var(--pagePadding) var(--sp-l);
+
+  h2 {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-gap: inherit;
+  }
+
+  > div:first-child {
+    grid-column: span 4;
+  }
+
+  > div:last-child {
+    grid-column: span 6;
+  }
+`;
 
 const Sidebar = styled.aside`
   position: sticky;
@@ -197,19 +222,9 @@ const Playground = () => {
     dotColor4,
   ];
 
-  const navigate = useNavigate();
-
   const handleRandomColors = () => {
     const colorRange = paletteColors[getRandomPaletteIndex()];
     setPlaygroundColors(colorRange);
-
-    const color0 = colorRange[0].replace("#", "");
-    const color1 = colorRange[1].replace("#", "");
-    const color2 = colorRange[2].replace("#", "");
-    const color3 = colorRange[3].replace("#", "");
-    const color4 = colorRange[4].replace("#", "");
-
-    navigate(`.?${color0}-${color1}-${color2}-${color3}-${color4}`);
   };
   useEffect(() => {
     setDotColor0(playgroundColors[0]);
@@ -221,6 +236,9 @@ const Playground = () => {
 
   const [avatarSize, setAvatarSize] = useState(avatarSizes.medium);
   const [variant, setVariant] = useState(variants.beam);
+
+  const colorsHex = filteredColors.map((color) => `"${color}"`).join(", ");
+  const colorsWithoutHash = filteredColors.map((color) => color.slice(1));
 
   return (
     <>
@@ -308,6 +326,26 @@ const Playground = () => {
             </SegmentGroup>
           </ShapeSelection>
         </Sidebar>
+        <Code>
+          <div>
+            <h2>React component</h2>
+            <pre>
+              {`<Avatar name="Mary Edwards" colors={[${colorsHex}]} variant="${variant}" ${
+                square ? "square" : ""
+              } size={${avatarSize}}/>`}
+            </pre>
+          </div>
+          <div>
+            <h2>API service</h2>
+            <pre>
+              <code>
+                {`<img src="{YOUR_DOMAIN}/api/avatar?name=Mary%20Edwards&size=${avatarSize}&colors=${colorsWithoutHash}&variant=${variant}${
+                  square ? "&square" : ""
+                }" crossorigin />`}
+              </code>
+            </pre>
+          </div>
+        </Code>
         <div>
           <Main>
             <AvatarsGrid>
@@ -324,6 +362,7 @@ const Playground = () => {
             </AvatarsGrid>
           </Main>
         </div>
+        <Footer colors={filteredColors} />
       </Layout>
     </>
   );

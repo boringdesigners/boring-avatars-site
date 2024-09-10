@@ -27,6 +27,11 @@ const cssVariables = css`
   --c-fade: hsla(0, 0%, 0%, 0.4);
   --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
   --c-backgroundCode: hsla(0, 0%, 0%, 0.05);
+
+  --font-monospace: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
+    Menlo, Consolas, monospace;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 `;
 
 const BaseStyles = createGlobalStyle`
@@ -41,8 +46,7 @@ const BaseStyles = createGlobalStyle`
   body {
     background-color: var(--c-background);
     color: var(--c-body);
-    font-family: "SF Mono", SFMono-Regular, ui-monospace, "DejaVu Sans Mono",
-      Menlo, Consolas, monospace;
+    font-family: var(--font-monospace);
     font-weight: normal;
     font-size: 0.875rem;
     line-height: 1.5;
@@ -52,6 +56,47 @@ const BaseStyles = createGlobalStyle`
     color: inherit;
     font-weight: 600;
   }
+
+  h1 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .card {
+    box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.01),
+    0 7px 14px 0 rgba(50, 50, 93, 0.05), 0 3px 6px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 0.75rem;
+    background-color: var(--c-background);
+    overflow: hidden;
+  }
+
+  pre {
+    width: 100%;
+    display: block;
+    padding: var(--sp-s) var(--sp-m);
+    border-radius: 0.25rem;
+    background-color: var(--c-backgroundCode);
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    white-space: break-spaces;
+
+    & + h2,
+    & + h3,
+    & + h4 {
+      margin-top: var(--sp-xl);
+    }
+}
 `;
 
 export default BaseStyles;
