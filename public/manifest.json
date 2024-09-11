@@ -1,6 +1,7 @@
 {
   "short_name": "Boring avatars",
-  "name": "Boring avatars - free open source React library",
+  "name": "Boring Avatars: Open-Source React Library & Customizable SVG Avatar Service",
+  "description": "Discover our open-source React library and subscription-based service for generating unique SVG user profile avatars for your website.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +19,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "https://boringavatars.com/",
+  "start_url": "https://boringavatars.com",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
