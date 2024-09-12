@@ -74,6 +74,13 @@ const examples = [
     imgUpload: "/images/josep-martins-brushed-background.jpg",
   },
   {
+    title: "Beam duotone",
+    colors: ["#ff0000", "#0000ff"],
+    variant: "beam",
+    imgProfile: "/images/josep-martins-graffiti2-background.jpg",
+    imgUpload: "/images/josep-martins-graffiti2-background.jpg",
+  },
+  {
     title: "Pixel punk",
     colors: ["#0a0310", "#49007e", "#ff005b", "#ff7d10", "#ffb238"],
     variant: "pixel",
@@ -93,13 +100,6 @@ const examples = [
     variant: "pixel",
     imgProfile: "/images/josep-martins-dirty-window-background.jpg",
     imgUpload: "/images/josep-martins-dirty-window-background.jpg",
-  },
-  {
-    title: "Beam duotone",
-    colors: ["#ff0000", "#0000ff"],
-    variant: "beam",
-    imgProfile: "/images/josep-martins-graffiti2-background.jpg",
-    imgUpload: "/images/josep-martins-graffiti2-background.jpg",
   },
 ];
 
