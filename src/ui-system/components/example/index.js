@@ -74,10 +74,12 @@ const ExampleWrapper = styled.div`
 
   @media (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
+    padding: var(--sp-l);
   }
 
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    padding: var(--sp-m);
   }
 
   & > .card:nth-child(1) {
