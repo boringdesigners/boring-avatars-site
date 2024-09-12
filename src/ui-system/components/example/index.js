@@ -106,7 +106,6 @@ const ExampleWrapper = styled.div`
 const Example = ({
   title,
   imgProfile,
-  imgUpload,
   variant,
   colors,
   nameProfile,
@@ -150,7 +149,7 @@ const Example = ({
       </Code>
       <ExampleWrapper colors={colors}>
         <ExampleUpload
-          img={imgUpload}
+          img={imgProfile}
           name={nameUpload}
           colors={colors}
           variant={variant}
