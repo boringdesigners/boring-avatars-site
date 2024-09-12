@@ -336,7 +336,12 @@ const Playground = () => {
             </pre>
           </div>
           <div>
-            <h2>API service</h2>
+            <h2>
+              API service{" "}
+              <a href="https://boringdesigners.gumroad.com/l/boring-avatars-service">
+                <small>Subscribe</small>
+              </a>
+            </h2>
             <pre>
               <code>
                 {`<img src="{YOUR_DOMAIN}/api/avatar?name=Mary%20Edwards&size=${avatarSize}&colors=${colorsWithoutHash}&variant=${variant}${

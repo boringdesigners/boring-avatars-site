@@ -29,15 +29,29 @@ const Code = styled.div`
     position: static;
   }
 
-  h2 {
-  }
-
-  > div {
+  ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
-    grid-gap: var(--sp-xs);
-    margin-bottom: var(--sp-xl);
+    gap: var(--sp-xs);
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 margin-bottom: var(--sp-xl);
+    padding: 0;
+
+    svg {
+      width: 100%;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    @media (max-width: 1000px) {
+      display: flex;
+    }
   }
+
+
 
   pre {
     line-break: anywhere;
@@ -111,16 +125,23 @@ const Example = ({
     <Section>
       <Code>
         <h2>{title}</h2>
-        <div>
+        <ul>
           {nameSample.map((name, index) => (
-            <Avatar key={index} name={name} colors={colors} variant={variant} />
+            <li key={index}>
+              <Avatar name={name} colors={colors} variant={variant} />
+            </li>
           ))}
-        </div>
+        </ul>
         <h3>React component</h3>
         <pre>
           <code>{`<Avatar name="Mary Edwards" colors={[${colorsHex}]} variant="${variant}" />`}</code>
         </pre>
-        <h3>API service</h3>
+        <h3>
+          API service{" "}
+          <a href="https://boringdesigners.gumroad.com/l/boring-avatars-service">
+            <small>Subscribe</small>
+          </a>
+        </h3>
         <pre>
           <code>
             {`<img src="{YOUR_DOMAIN}/api/avatar?name=Mary%20Edwards&colors=${colorsWithoutHash}&variant=${variant}" crossorigin />`}
