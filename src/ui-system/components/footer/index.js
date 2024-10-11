@@ -38,11 +38,7 @@ const Footer = ({ colors }) => {
         </a>{" "}
         and{" "}
         <a href="https://josepmartins.com/">
-          <img
-            alt="SVG generated avatar that shows abstract colored shades being blurred"
-            src={`https://api.boringavatars.dev/api/avatar?name=Josep%20Martins&size=14&colors=${colorsWithoutHash}`}
-            crossOrigin="anonymous"
-          />
+          <Avatar name="Josep Martins" size="1em" colors={colors} />
           Josep Martins
         </a>
         .
@@ -61,12 +57,7 @@ const Footer = ({ colors }) => {
         </a>
         . Images are from{" "}
         <a href="https://unsplash.com/@josepmartins">
-          {" "}
-          <img
-            alt="SVG generated avatar that shows abstract colored shades being blurred"
-            src={`https://api.boringavatars.dev/api/avatar?name=Josep%20Martins&size=14&colors=${colorsWithoutHash}`}
-            crossOrigin="anonymous"
-          />
+          <Avatar name="Josep Martins" size="1em" colors={colors} />
           Josep Martins Unsplash
         </a>{" "}
         profile.
