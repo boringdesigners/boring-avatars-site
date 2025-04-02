@@ -1,0 +1,32 @@
+.color-dot {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+}
+
+.color-dot:focus {
+  outline: none;
+  border-color: var(--c-fieldFocus);
+}
+
+.color-dot::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-dot::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.color-dot::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}

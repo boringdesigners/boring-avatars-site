@@ -1,0 +1,32 @@
+.segment-group {
+  overflow: auto;
+  background-color: var(--c-button);
+  padding: 0.2rem;
+  border-radius: 10rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.segment-group--full-width {
+  width: 100%;
+}
+
+.segment-group > button {
+  flex: 1;
+}
+
+.segment {
+  background-color: transparent;
+}
+
+.segment--selected {
+  background-color: var(--c-background);
+}
+
+.segment:not(:hover) {
+  background-color: transparent;
+}
+
+.segment--selected:not(:hover) {
+  background-color: var(--c-background);
+}

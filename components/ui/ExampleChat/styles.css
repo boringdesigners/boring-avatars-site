@@ -1,0 +1,63 @@
+.chat-avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-s) var(--sp-m);
+}
+
+.chat-avatar-wrapper > div {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-s);
+  padding-bottom: var(--sp-m);
+  padding-top: var(--sp-m);
+}
+
+.chat-avatar-wrapper > div + div {
+  border-top: 1px solid var(--c-backgroundAlt);
+}
+
+.chat-avatar-wrapper h4 {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.chat-avatar-wrapper header {
+  position: relative;
+}
+
+.chat-avatar-wrapper header span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+  border: 2px solid white;
+}
+
+.chat-avatar-wrapper small {
+  color: var(--c-body-secondary);
+  align-self: flex-start;
+  flex: 1;
+  text-align: right;
+}
+
+.chat-badge {
+  padding: 0.1rem 0.4rem 0.15rem;
+  border-radius: 99px;
+  font-size: 0.65rem;
+  margin-left: 0.25rem;
+  font-weight: 500;
+}
+
+.chat-badge--active {
+  background-color: rgb(198, 246, 217);
+  color: rgb(15, 92, 46);
+}
+
+.chat-badge--inactive {
+  background-color: var(--c-backgroundAlt);
+  color: inherit;
+}

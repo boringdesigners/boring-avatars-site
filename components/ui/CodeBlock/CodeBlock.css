@@ -1,0 +1,36 @@
+.code-block {
+  position: relative;
+}
+
+.code-block-copy {
+  position: absolute;
+  top: var(--sp-xs);
+  right: var(--sp-xs);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 0.25rem;
+}
+
+.code-block:hover .code-block-copy {
+  opacity: 1;
+}
+
+.code-block pre {
+  width: 100%;
+  display: block;
+  padding: var(--sp-s) var(--sp-m);
+  border-radius: 0.25rem;
+  background-color: var(--c-backgroundCode);
+  overflow: auto;
+  line-height: 1.45;
+  margin: 1rem 0;
+  white-space: break-spaces;
+  overflow-wrap: anywhere;
+  line-break: anywhere;
+}
+
+.code-block code {
+  font-family: 'SF Mono', 'Consolas', 'Monaco', 'Andale Mono', monospace;
+  font-size: 0.8rem;
+}
