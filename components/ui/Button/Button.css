@@ -1,0 +1,41 @@
+.button {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--textbox-x);
+  background: var(--c-button);
+  word-spacing: -0.25em;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  height: var(--buttonHeight);
+  white-space: nowrap;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  gap: var(--sp-s);
+}
+
+.button--icon-only {
+  width: var(--buttonHeight);
+  padding: 0;
+}
+
+.button:hover {
+  background-color: var(--c-buttonHover);
+}
+
+.button:active {
+  background-color: var(--c-buttonActive);
+}
+
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+}

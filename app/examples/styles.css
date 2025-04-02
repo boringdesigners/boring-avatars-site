@@ -1,0 +1,15 @@
+.examples-container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 var(--pagePadding) var(--sp-l);
+}
+
+.examples-container > p {
+  max-width: 55ch;
+}
+
+@media (max-width: 1000px) {
+  .examples-container {
+    width: 100%;
+  }
+}

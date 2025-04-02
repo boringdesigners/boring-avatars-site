@@ -1,0 +1,58 @@
+.upload-avatar-wrapper header div {
+  display: flex;
+  gap: var(--sp-xs);
+  align-items: center;
+  gap: var(--sp-s);
+  padding: var(--sp-m) var(--sp-m);
+}
+
+.upload-avatar-wrapper header p {
+  flex: 1;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+}
+
+.upload-avatar-wrapper header span {
+  color: var(--c-body-secondary);
+  margin-left: var(--sp-xs);
+}
+
+.upload-avatar-wrapper header img {
+  width: 100%;
+  display: block;
+  height: calc(var(--sp-xl) * 4);
+  object-fit: cover;
+  background-color: var(--c-button);
+  margin-bottom: var(--sp-s);
+}
+
+.upload-avatar-wrapper footer {
+  padding: var(--sp-s) var(--sp-m);
+  display: flex;
+  gap: var(--sp-s);
+  margin-bottom: var(--sp-m);
+}
+
+.upload-avatar-wrapper footer button {
+  word-spacing: 0.25em;
+}
+
+.upload-avatar-wrapper footer button + button {
+  flex: 1;
+}
+
+.upload-avatar-group {
+  display: flex;
+  padding: var(--sp-m) var(--sp-m);
+}
+
+.upload-avatar-group svg + svg {
+  margin-left: -0.25rem;
+  filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)
+    drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+}
+
+.upload-avatar-group span {
+  margin-left: var(--sp-s);
+}
