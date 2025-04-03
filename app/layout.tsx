@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { PropsWithChildren, Suspense } from 'react';
+import { PropsWithChildren } from 'react';
 import { getURL } from '@/utils/helpers';
 import { Footer } from '@/components/ui/Footer';
 import 'styles/main.css';
 
-const title = 'Boring Avatars Pricing Page';
+const title =
+  'Boring Avatars: Open-Source React Library & Customizable SVG Avatar Service';
 const description =
-  'Discover Boring Avatars Service with flexible subscription plans tailored for all users. Choose between our Basic Plan with up to 100k requests/month or the Pro Plan with up to 500k requests/month to meet your needs.';
+  'Discover our open-source React library and subscription-based service for generating unique SVG user profile avatars for your website.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(getURL()),
