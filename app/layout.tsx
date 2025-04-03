@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { PropsWithChildren, Suspense } from 'react';
+import { PropsWithChildren } from 'react';
 import { getURL } from '@/utils/helpers';
 import { Footer } from '@/components/ui/Footer';
 import 'styles/main.css';
@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(getURL()),
   title: title,
   description: description,
+  manifest: '/manifest.json',
+  themeColor: '#000000',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1
+  },
   openGraph: {
     title: title,
     description: description
@@ -22,11 +28,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
+      <head />
       <body>
-        <main
-          id="skip"
-          className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
-        >
+        <main id="skip">
           <nav>
             <ul>
               <li>
@@ -41,9 +45,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
               <li>
                 <Link href="/examples">Examples</Link>
               </li>
-              {/* <li>
-                <Link href="/pricing">Pricing</Link>
-              </li> */}
             </ul>
           </nav>
           {children}
