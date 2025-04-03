@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, Suspense } from 'react';
 import { getURL } from '@/utils/helpers';
 import { Footer } from '@/components/ui/Footer';
 import 'styles/main.css';
@@ -21,7 +21,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: title,
-    description: description
+    description: description,
+    images: [
+      {
+        url: '/images/boring-avatars.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Boring Avatars'
+      }
+    ]
   }
 };
 
