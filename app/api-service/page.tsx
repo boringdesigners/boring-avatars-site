@@ -59,7 +59,7 @@ export default function APIService() {
           provided URL.
         </p>
         <CodeBlock
-          code={`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square`}
+          code={`{CUSTOM_DOMAIN}?name={NAME}&variant={VARIANT}&size={SIZE}&colors={COLORS}&square=true`}
         />
         <p>
           Use the URL in an <code>img</code> tag with the{' '}
@@ -103,7 +103,9 @@ export default function APIService() {
         <p>
           Use the <code>square</code> parameter to make the avatar square.
         </p>
-        <CodeBlock code={`<img src="{CUSTOM_DOMAIN}?square crossorigin>`} />
+        <CodeBlock
+          code={`<img src="{CUSTOM_DOMAIN}?square=true crossorigin>`}
+        />
         <h3>Random</h3>
         <p>
           If you just want to use random avatars without providing usernames,
