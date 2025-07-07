@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@stripe/stripe-js": "2.4.0",
-    "boring-avatars": "^1.11.2",
+    "boring-avatars": "^2.0.0-beta.0",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "lucide-react": "0.330.0",
-    "next": "15.0.2",
+    "lucide-react": "0.525.0",
+    "next": "15.3.5",
     "nice-color-palettes": "^4.0.0",
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-confetti": "^6.1.0",
+    "react": "19.1.0",
+    "react-confetti": "^6.4.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "19.0.0-rc-02c0e824-20241028",
+    "react-dom": "19.1.0",
     "react-merge-refs": "^2.1.1",
     "stripe": "^14.25.0",
     "tailwind-merge": "^2.5.4",
@@ -30,25 +30,19 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20.17.5",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/node": "^24.0.10",
+    "@types/react": "19.1.8",
     "@types/react-copy-to-clipboard": "^5.0.7",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "15.0.2",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.30.1",
+    "eslint-config-next": "15.3.5",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-tailwindcss": "^3.17.5",
-    "postcss": "^8.4.47",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "typescript": "^5.6.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-    }
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.13",
+    "typescript": "^5.8.3"
   }
 }
