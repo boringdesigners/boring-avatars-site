@@ -12,8 +12,8 @@ importers:
         specifier: 2.4.0
         version: 2.4.0
       boring-avatars:
-        specifier: ^2.0.0
-        version: 2.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 2.0.1
+        version: 2.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -600,8 +600,8 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
-  boring-avatars@2.0.0:
-    resolution: {integrity: sha512-rANFfYatYsbT/c2JRyCjICX05eH4krVWadmW9KcDE2vf3r1w4qfY3s+Y86YQS2b4BdL6trjFE+XQjE5hGmRaeg==}
+  boring-avatars@2.0.1:
+    resolution: {integrity: sha512-TeBnZrp7WxHcQPuLhGQamklgNqaL7eUAUh3E11kFj9rTn0Hari2ZKVTchqNrp62UOHN/XOe5bZGcbzVGwHjHwg==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -2640,7 +2640,7 @@ snapshots:
 
   binary-extensions@2.3.0: {}
 
-  boring-avatars@2.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  boring-avatars@2.0.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
