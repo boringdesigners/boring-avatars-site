@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@stripe/stripe-js": "2.4.0",
-    "boring-avatars": "2.0.1",
-    "class-variance-authority": "^0.7.0",
+    "boring-avatars": "2.0.2",
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "lucide-react": "0.525.0",
@@ -25,24 +25,24 @@
     "react-dom": "19.1.0",
     "react-merge-refs": "^2.1.1",
     "stripe": "^14.25.0",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss": "^3.4.14",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.5.2",
     "@types/react": "19.1.8",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "19.1.6",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9.30.1",
+    "eslint": "^9.36.0",
     "eslint-config-next": "15.3.5",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-tailwindcss": "^3.18.0",
+    "eslint-plugin-tailwindcss": "^3.18.2",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.13",
-    "typescript": "^5.8.3"
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "^5.9.2"
   }
 }
