@@ -4,7 +4,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "prettier-fix": "prettier --write .",
     "stripe:login": "stripe login",
     "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks",
@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@stripe/stripe-js": "2.4.0",
-    "boring-avatars": "2.0.2",
+    "boring-avatars": "2.0.4",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "lucide-react": "0.525.0",
-    "next": "15.3.5",
+    "next": "16.0.7",
     "nice-color-palettes": "^4.0.0",
-    "react": "19.1.0",
+    "react": "19.2.1",
     "react-confetti": "^6.4.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "19.1.0",
+    "react-dom": "19.2.1",
     "react-merge-refs": "^2.1.1",
     "stripe": "^14.25.0",
     "tailwind-merge": "^2.6.0",
@@ -30,19 +30,25 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^24.5.2",
-    "@types/react": "19.1.8",
+    "@types/node": "^24.10.1",
+    "@types/react": "19.2.7",
     "@types/react-copy-to-clipboard": "^5.0.7",
-    "@types/react-dom": "19.1.6",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.36.0",
-    "eslint-config-next": "15.3.5",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "16.0.7",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-tailwindcss": "^3.18.2",
     "postcss": "^8.5.6",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.7",
+      "@types/react-dom": "19.2.3"
+    }
   }
 }
