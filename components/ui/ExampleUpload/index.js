@@ -1,15 +1,16 @@
-import React from 'react';
-import Avatar from 'boring-avatars';
-import { Button } from '@/components/ui/Button';
-import './styles.css';
+import React from 'react'
+import Avatar from 'boring-avatars'
+import { Button } from '@/components/ui/Button'
+import './styles.css'
 
-const ExampleUpload = ({ name, likes, colors, variant, img }) => {
+/** @param {{ name: any; likes: any; colors: any; variant: any; img: any; square?: boolean }} props */
+const ExampleUpload = ({ name, likes, colors, variant, img, square }) => {
   return (
     <div className="card">
       <div className="upload-avatar-wrapper">
         <header>
           <div>
-            <Avatar name={name} size="36" variant={variant} colors={colors} />
+            <Avatar name={name} size="36" variant={variant} colors={colors} square={square} />
             <p>
               <b>{name}</b> uploaded a new photo
               <span>2 hours ago</span>
@@ -19,13 +20,7 @@ const ExampleUpload = ({ name, likes, colors, variant, img }) => {
         </header>
         <div className="upload-avatar-group">
           {likes.map((likeName, index) => (
-            <Avatar
-              key={index}
-              name={likeName}
-              size="24"
-              variant={variant}
-              colors={colors}
-            />
+            <Avatar key={index} name={likeName} size="24" variant={variant} colors={colors} square={square} />
           ))}
           <span>5 friends liked this</span>
         </div>
@@ -35,7 +30,7 @@ const ExampleUpload = ({ name, likes, colors, variant, img }) => {
         </footer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExampleUpload;
+export default ExampleUpload

@@ -1,4 +1,4 @@
-import Pricing from '@/components/ui/Pricing/Pricing';
+import Pricing from '@/components/ui/Pricing/Pricing'
 
 const products = [
   {
@@ -47,8 +47,8 @@ const products = [
       }
     ]
   }
-];
+]
 
 export default async function PricingPage() {
-  return <Pricing products={products} />;
+  return <Pricing products={products} />
 }

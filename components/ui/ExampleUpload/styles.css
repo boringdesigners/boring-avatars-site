@@ -49,8 +49,7 @@
 
 .upload-avatar-group svg + svg {
   margin-left: -0.25rem;
-  filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)
-    drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+  filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
 }
 
 .upload-avatar-group span {

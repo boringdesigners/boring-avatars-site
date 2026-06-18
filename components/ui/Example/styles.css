@@ -1,82 +1,84 @@
-.example-section {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  grid-gap: var(--sp-xl);
-  margin-top: calc(var(--sp-xl) * 4);
-}
-
-@media (max-width: 1000px) {
-  .example-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-.example-code {
-  height: fit-content;
-  position: sticky;
-  top: 0;
-}
-
-@media (max-width: 1000px) {
-  .example-code {
-    position: static;
-  }
-}
-
-.example-code h2 + div {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
-  grid-gap: var(--sp-xs);
+.example-code-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   margin-bottom: var(--sp-xl);
+  margin-top: var(--sp-l);
 }
 
-.example-wrapper {
-  font-family: var(--font-sans);
+.example-code-title {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.example-code-card .avatars-grid {
+  padding: var(--sp-l);
+  gap: var(--sp-m);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-code-content .code-block {
+  margin: 0;
+  padding: var(--sp-m) var(--sp-l);
+}
+
+.example-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(4, min-content);
   grid-gap: var(--sp-l);
-  padding: var(--sp-xl);
-  border-radius: 1rem;
-  background: linear-gradient(210deg, var(--color-1), var(--color-2));
 }
 
 @media (max-width: 1200px) {
-  .example-wrapper {
+  .example-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 700px) {
-  .example-wrapper {
+  .example-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.example-wrapper > .card:nth-child(1) {
+.example-grid > .card:nth-child(1) {
   grid-row: span 2;
 }
 
-.example-wrapper > .card:nth-child(2) {
+.example-grid > .card:nth-child(2) {
   grid-row: span 2;
 }
 
-.example-wrapper > .card:nth-child(3) {
+.example-grid > .card:nth-child(3) {
   grid-row: span 1;
 }
 
-.example-wrapper > .card:nth-child(4) {
+.example-grid > .card:nth-child(4) {
   grid-row: span 2;
 }
 
-.example-wrapper > .card:nth-child(5) {
+.example-grid > .card:nth-child(5) {
   grid-row: span 2;
 }
 
-.example-wrapper > .card:nth-child(6) {
+.example-grid > .card:nth-child(6) {
   grid-row: span 2;
 }
 
-.example-wrapper > .card:nth-child(7) {
+.example-grid > .card:nth-child(7) {
   grid-row: span 1;
+}
+
+.example-wrapper {
+  font-family: var(--font-sans);
+  padding: var(--sp-xl);
+  border-radius: 1rem;
+  background: linear-gradient(210deg, var(--color-1), var(--color-2)), #f6f6f6;
+}
+
+.example-section {
+  margin-bottom: calc(var(--sp-xl) * 2);
 }

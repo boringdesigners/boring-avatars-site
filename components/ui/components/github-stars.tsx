@@ -1,27 +1,33 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import { Star } from '@/components/ui/icons'
 
 interface GitHubStarsProps {
-  user: string;
-  repo: string;
+  user: string
+  repo: string
 }
 
 export function GitHubStars({ user, repo }: GitHubStarsProps) {
-  const [stars, setStars] = useState<number | null>(null);
+  const [stars, setStars] = useState<number | null>(null)
 
   useEffect(() => {
     fetch(`https://api.github.com/repos/${user}/${repo}`)
       .then((res) => res.json())
       .then((data) => {
-        setStars(data.stargazers_count);
+        setStars(data.stargazers_count)
       })
       .catch(() => {
-        setStars(null);
-      });
-  }, [user, repo]);
+        setStars(null)
+      })
+  }, [user, repo])
 
-  if (stars === null) return null;
+  if (stars === null) return null
 
-  return <span>⭐ {stars.toLocaleString()}</span>;
+  return (
+    <span className="githubStars">
+      <Star />
+      {stars.toLocaleString()}
+    </span>
+  )
 }

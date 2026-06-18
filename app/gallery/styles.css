@@ -1,0 +1,7 @@
+.examples-container {
+  margin-top: var(--sp-l);
+}
+
+.examples-container > p {
+  max-width: 55ch;
+}

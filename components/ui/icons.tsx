@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const RoundCorner: React.FC = () => {
   return (
@@ -8,16 +8,28 @@ export const RoundCorner: React.FC = () => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const SquareCorner: React.FC = () => {
   return (
     <svg width={13} height={13} viewBox="0 0 13 13" fill="none">
       <path d="M0.5 0.5H13V5.5H5.5V13H0.5V0.5Z" fill="currentColor" />
     </svg>
-  );
-};
+  )
+}
+
+export const RandomColors: React.FC = () => {
+  return (
+    <svg width={16} height={16} viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="2.5" r="1.6" fill="currentColor" />
+      <circle cx="13.2" cy="6.3" r="1.6" fill="currentColor" opacity="0.85" />
+      <circle cx="11.2" cy="12.5" r="1.6" fill="currentColor" opacity="0.7" />
+      <circle cx="4.8" cy="12.5" r="1.6" fill="currentColor" opacity="0.55" />
+      <circle cx="2.8" cy="6.3" r="1.6" fill="currentColor" opacity="0.4" />
+    </svg>
+  )
+}
 
 export const Github: React.FC = () => {
   return (
@@ -27,5 +39,16 @@ export const Github: React.FC = () => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
+
+export const Star: React.FC = () => {
+  return (
+    <svg width={14} height={14} viewBox="0 0 12 12" fill="none">
+      <path
+        d="M6 1.2l1.12 2.27 2.5.36-1.81 1.77.43 2.49L6 6.98 3.76 8.09l.43-2.49L2.38 3.83l2.5-.36L6 1.2z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}

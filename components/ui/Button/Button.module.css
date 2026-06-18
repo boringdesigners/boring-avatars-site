@@ -1,5 +1,5 @@
 .root {
-  @apply bg-zinc-800 text-white border border-white cursor-pointer inline-flex px-10 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center uppercase py-4 items-center;
+  @apply inline-flex cursor-pointer items-center justify-center rounded-sm border border-white bg-zinc-800 px-10 py-4 text-center font-semibold uppercase leading-6 text-white shadow-sm transition duration-150 ease-in-out;
 }
 
 .root:hover {
@@ -15,16 +15,16 @@
 }
 
 .loading {
-  @apply bg-zinc-700 text-zinc-500 border-zinc-600 cursor-not-allowed;
+  @apply cursor-not-allowed border-zinc-600 bg-zinc-700 text-zinc-500;
 }
 
 .slim {
-  @apply py-2 transform-none normal-case;
+  @apply transform-none py-2 normal-case;
 }
 
 .disabled,
 .disabled:hover {
-  @apply text-zinc-400 border-zinc-600 bg-zinc-700 cursor-not-allowed;
+  @apply cursor-not-allowed border-zinc-600 bg-zinc-700 text-zinc-400;
   filter: grayscale(1);
   -webkit-transform: translateZ(0);
   -webkit-perspective: 1000;

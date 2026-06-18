@@ -7,27 +7,16 @@ export const RoundCorner = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const SquareCorner = () => (
   <svg width={13} height={13} viewBox="0 0 13 13" fill="none">
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M0.5 0.5H13V5.5H5.5V13H0.5V0.5Z"
-      fill="currentColor"
-    />
+    <path fillRule="evenodd" clipRule="evenodd" d="M0.5 0.5H13V5.5H5.5V13H0.5V0.5Z" fill="currentColor" />
   </svg>
-);
+)
 
 export const Github = () => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={18} height={18} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -35,16 +24,10 @@ export const Github = () => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const About = () => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 21 46"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="14" height="14" viewBox="0 0 21 46" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M17.7731 39.9131H13.2733V16.1633C13.2733 14.6632 12.0233 13.4132 10.5233 13.4132H10.4232H10.3231H5.32311C3.82304 13.4132 2.57305 14.6632 2.57305 16.1633C2.57305 17.6633 3.82304 18.9133 5.32311 18.9133H7.82309V39.9132H3.32331C1.82323 39.9132 0.573242 41.1631 0.573242 42.6632C0.573242 44.1633 1.82323 45.4133 3.32331 45.4133H17.8232C19.3233 45.4133 20.5732 44.1633 20.5732 42.6632C20.5732 41.1631 19.3233 39.9132 17.7734 39.9132L17.7731 39.9131Z"
       fill="currentColor"
@@ -54,4 +37,4 @@ export const About = () => (
       fill="currentColor"
     />
   </svg>
-);
+)

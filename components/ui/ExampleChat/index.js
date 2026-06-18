@@ -1,8 +1,9 @@
-import React from 'react';
-import Avatar from 'boring-avatars';
-import './styles.css';
+import React from 'react'
+import Avatar from 'boring-avatars'
+import './styles.css'
 
-const ExampleChat = ({ users, colors, variant }) => {
+/** @param {{ users: any; colors: any; variant: any; square?: boolean }} props */
+const ExampleChat = ({ users, colors, variant, square }) => {
   return (
     <div className="card">
       <div className="chat-avatar-wrapper">
@@ -10,22 +11,13 @@ const ExampleChat = ({ users, colors, variant }) => {
         {users.map((user, index) => (
           <div key={index}>
             <header>
-              <Avatar
-                name={user.name}
-                colors={colors}
-                size="32"
-                variant={variant}
-              />
+              <Avatar name={user.name} colors={colors} size="32" variant={variant} square={square} />
             </header>
             <div>
               <h4>{user.name}</h4>
               <small>{user.email}</small>
               {user.status && (
-                <span
-                  className={`chat-badge chat-badge--${user.status ? 'active' : 'inactive'}`}
-                >
-                  Active
-                </span>
+                <span className={`chat-badge chat-badge--${user.status ? 'active' : 'inactive'}`}>Active</span>
               )}
             </div>
             <small>{user.time}</small>
@@ -33,7 +25,7 @@ const ExampleChat = ({ users, colors, variant }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExampleChat;
+export default ExampleChat

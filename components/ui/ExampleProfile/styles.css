@@ -16,8 +16,7 @@
 }
 
 .profile-avatar-wrapper svg {
-  filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white)
-    drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
+  filter: drop-shadow(2px 0 0 white) drop-shadow(-2px 0 0 white) drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white);
 }
 
 .profile-avatar-wrapper header {

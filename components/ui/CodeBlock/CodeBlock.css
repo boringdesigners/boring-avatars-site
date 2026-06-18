@@ -1,22 +1,4 @@
 .code-block {
-  position: relative;
-}
-
-.code-block-copy {
-  position: absolute;
-  top: var(--sp-xs);
-  right: var(--sp-xs);
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.2s;
-  border-radius: 0.25rem;
-}
-
-.code-block:hover .code-block-copy {
-  opacity: 1;
-}
-
-.code-block pre {
   width: 100%;
   display: block;
   padding: var(--sp-s) var(--sp-m);
@@ -24,13 +6,78 @@
   background-color: var(--c-backgroundCode);
   overflow: auto;
   line-height: 1.45;
-  margin: 1rem 0;
+  margin: 0;
   white-space: break-spaces;
   overflow-wrap: anywhere;
   line-break: anywhere;
 }
 
+.code-block-toolbar {
+  float: right;
+  margin-left: var(--sp-l);
+}
+
+.code-block-copy {
+  display: inline-flex;
+  vertical-align: middle;
+  background-color: var(--c-background);
+  box-shadow:
+    0 0 0 1px rgba(50, 50, 93, 0.04),
+    0 2px 6px 0 rgba(50, 50, 93, 0.06),
+    0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 0.5rem;
+}
+
+.code-block-copy:hover {
+  background-color: var(--c-background);
+  box-shadow:
+    0 0 0 1px rgba(50, 50, 93, 0.06),
+    0 4px 10px 0 rgba(50, 50, 93, 0.08),
+    0 2px 4px 0 rgba(0, 0, 0, 0.04);
+}
+
+.code-block-copy:active {
+  background-color: var(--c-background);
+}
+
 .code-block code {
   font-family: 'SF Mono', 'Consolas', 'Monaco', 'Andale Mono', monospace;
   font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.code-block-content {
+  display: block;
+}
+
+.code-block .token.tag {
+  color: #22863a;
+}
+
+.code-block .token.attr-name {
+  color: #6f42c1;
+}
+
+.code-block .token.attr-value,
+.code-block .token.string {
+  color: #032f62;
+}
+
+.code-block .token.punctuation {
+  color: #586069;
+}
+
+.code-block .token.keyword {
+  color: #d73a49;
+}
+
+.code-block .token.operator {
+  color: #586069;
+}
+
+.code-block .token.property {
+  color: #005cc5;
 }

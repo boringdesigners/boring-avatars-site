@@ -1,17 +1,14 @@
-import React, { ReactNode } from 'react';
-import './Button.css';
+import React, { ReactNode } from 'react'
+import './Button.css'
 
 type ButtonProps = {
-  children?: ReactNode;
-  icon?: ReactNode;
-  className?: string;
-  as?: 'button' | 'a';
-  variant?: 'slim';
-  loading?: boolean;
-} & (
-  | React.ButtonHTMLAttributes<HTMLButtonElement>
-  | React.AnchorHTMLAttributes<HTMLAnchorElement>
-);
+  children?: ReactNode
+  icon?: ReactNode
+  className?: string
+  as?: 'button' | 'a'
+  variant?: 'slim' | 'primary'
+  loading?: boolean
+} & (React.ButtonHTMLAttributes<HTMLButtonElement> | React.AnchorHTMLAttributes<HTMLAnchorElement>)
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -31,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
         {icon && <span className="button-icon">{icon}</span>}
         {children && children}
       </a>
-    );
+    )
   }
 
   return (
@@ -42,5 +39,5 @@ export const Button: React.FC<ButtonProps> = ({
       {icon && <span className="button-icon">{icon}</span>}
       {children && children}
     </button>
-  );
-};
+  )
+}

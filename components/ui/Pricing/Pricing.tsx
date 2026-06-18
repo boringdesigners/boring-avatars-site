@@ -1,37 +1,30 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { useState } from 'react';
-import cn from 'classnames';
-import { useRouter, usePathname } from 'next/navigation';
-import { Button } from '@/components/ui';
-import Input from '@/components/ui/Input';
-import { getStripe } from '@/utils/stripe/client';
-import { checkoutWithStripe } from '@/utils/stripe/server';
-import { getErrorRedirect } from '@/utils/helpers';
-import type { Product, Price, BillingInterval } from '@/utils/types';
-import './Pricing.css';
+import React from 'react'
+import { useState } from 'react'
+import cn from 'classnames'
+import { useRouter, usePathname } from 'next/navigation'
+import { Button } from '@/components/ui'
+import Input from '@/components/ui/Input'
+import { getStripe } from '@/utils/stripe/client'
+import { checkoutWithStripe } from '@/utils/stripe/server'
+import { getErrorRedirect } from '@/utils/helpers'
+import type { Product, Price, BillingInterval } from '@/utils/types'
+import './Pricing.css'
 
 export default function Pricing({ products }: { products: Product[] }) {
-  const intervals = Array.from(
-    new Set(
-      products.flatMap((product) =>
-        product?.prices?.map((price) => price?.interval)
-      )
-    )
-  );
-  const router = useRouter();
-  const [billingInterval, setBillingInterval] =
-    useState<BillingInterval>('month');
-  const [priceIdLoading, setPriceIdLoading] = useState<string>();
-  const [email, setEmail] = useState<string>('');
-  const [domain, setDomain] = useState<string>('');
-  const [testDomain, setTestDomain] = useState<string>('');
+  const intervals = Array.from(new Set(products.flatMap((product) => product?.prices?.map((price) => price?.interval))))
+  const router = useRouter()
+  const [billingInterval, setBillingInterval] = useState<BillingInterval>('month')
+  const [priceIdLoading, setPriceIdLoading] = useState<string>()
+  const [email, setEmail] = useState<string>('')
+  const [domain, setDomain] = useState<string>('')
+  const [testDomain, setTestDomain] = useState<string>('')
 
-  const currentPath = usePathname();
+  const currentPath = usePathname()
 
   const handleStripeCheckout = async (price: Price) => {
-    setPriceIdLoading(price.id);
+    setPriceIdLoading(price.id)
 
     const { errorRedirect, sessionId } = await checkoutWithStripe({
       price,
@@ -39,44 +32,41 @@ export default function Pricing({ products }: { products: Product[] }) {
       email,
       domain,
       testDomain
-    });
+    })
 
     if (errorRedirect) {
-      setPriceIdLoading(undefined);
-      return router.push(errorRedirect);
+      setPriceIdLoading(undefined)
+      return router.push(errorRedirect)
     }
 
     if (!sessionId) {
-      setPriceIdLoading(undefined);
+      setPriceIdLoading(undefined)
       return router.push(
         getErrorRedirect(
           currentPath,
           'An unknown error occurred.',
           'Please try again later or contact a system administrator.'
         )
-      );
+      )
     }
 
-    const stripe = await getStripe();
-    stripe?.redirectToCheckout({ sessionId });
+    const stripe = await getStripe()
+    stripe?.redirectToCheckout({ sessionId })
 
-    setPriceIdLoading(undefined);
-  };
+    setPriceIdLoading(undefined)
+  }
 
   return (
     <section>
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-16 sm:px-6 lg:px-8">
-        <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold sm:text-center sm:text-6xl gradient-text">
-            Pricing Plans
-          </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl sm:text-center sm:text-2xl">
-            Boring Avatars scales to fit your needs. Choose a plan below or
-            contact us for a custom solution if you require more. Our service
-            grows with you, no matter how large your project becomes.
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
+        <div className="sm:align-center sm:flex sm:flex-col">
+          <h1 className="gradient-text text-4xl font-extrabold sm:text-center sm:text-6xl">Pricing Plans</h1>
+          <p className="m-auto mt-5 max-w-2xl text-xl sm:text-center sm:text-2xl">
+            Boring Avatars scales to fit your needs. Choose a plan below or contact us for a custom solution if you
+            require more. Our service grows with you, no matter how large your project becomes.
           </p>
-          <div className="flex flex-col lg:flex-row gap-6">
-            <form className="w-full max-w-md mx-auto mt-8 space-y-6">
+          <div className="flex flex-col gap-6 lg:flex-row">
+            <form className="mx-auto mt-8 w-full max-w-md space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium">
                   Your email
@@ -85,7 +75,7 @@ export default function Pricing({ products }: { products: Product[] }) {
                   type="email"
                   id="email"
                   required
-                  className="mt-1 block w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md shadow-sm text-zinc-100 placeholder:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 shadow-sm placeholder:text-zinc-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="mail@example.com"
@@ -98,40 +88,37 @@ export default function Pricing({ products }: { products: Product[] }) {
                 <input
                   type="text"
                   id="domain"
-                  className="mt-1 block w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md shadow-sm text-zinc-100 placeholder:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 shadow-sm placeholder:text-zinc-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500"
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
                   placeholder="https://yourdomain.com"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="testDomain"
-                  className="block text-sm font-medium"
-                >
+                <label htmlFor="testDomain" className="block text-sm font-medium">
                   Your local testing domain
                 </label>
                 <input
                   type="text"
                   id="testDomain"
-                  className="mt-1 block w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md shadow-sm text-zinc-100 placeholder:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="mt-1 block w-full rounded-md border border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100 shadow-sm placeholder:text-zinc-100 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-500"
                   value={testDomain}
                   onChange={(e) => setTestDomain(e.target.value)}
                   placeholder="https://"
                 />
               </div>
             </form>
-            <div className="flex items-center flex-col">
-              <div className="inline-flex self-center w-2/3 md:w-auto lg:w-auto mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
+            <div className="flex flex-col items-center">
+              <div className="mt-6 flex inline-flex w-2/3 self-center rounded-lg border border-zinc-800 bg-zinc-900 p-0.5 sm:mt-8 md:w-auto lg:w-auto">
                 {intervals.includes('month') && (
                   <button
                     onClick={() => setBillingInterval('month')}
                     type="button"
                     className={`${
                       billingInterval === 'month'
-                        ? 'relative bg-zinc-700 border-zinc-800 shadow-sm text-white'
-                        : 'ml-0.5 relative  border border-transparent text-zinc-400'
-                    } w-1/2 rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                        ? 'relative border-zinc-800 bg-zinc-700 text-white shadow-sm'
+                        : 'relative ml-0.5 border border-transparent text-zinc-400'
+                    } m-1 w-1/2 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 sm:w-auto sm:px-8`}
                   >
                     Monthly billing
                   </button>
@@ -142,57 +129,47 @@ export default function Pricing({ products }: { products: Product[] }) {
                     type="button"
                     className={`${
                       billingInterval === 'year'
-                        ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
-                        : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
-                    } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                        ? 'relative w-1/2 border-zinc-800 bg-zinc-700 text-white shadow-sm'
+                        : 'relative ml-0.5 w-1/2 border border-transparent text-zinc-400'
+                    } m-1 whitespace-nowrap rounded-md py-2 text-sm font-medium focus:z-10 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 sm:w-auto sm:px-8`}
                   >
                     Yearly billing
                   </button>
                 )}
               </div>
-              <div className="mt-12 space-y-0 sm:mt-16 flex flex-wrap justify-center gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0">
+              <div className="mt-12 flex flex-wrap justify-center gap-6 space-y-0 sm:mt-16 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:max-w-none">
                 {products.map((product) => {
-                  const price = product?.prices?.find(
-                    (price) => price.interval === billingInterval
-                  );
-                  if (!price) return null;
+                  const price = product?.prices?.find((price) => price.interval === billingInterval)
+                  if (!price) return null
                   const priceString = new Intl.NumberFormat('en-US', {
                     style: 'currency',
                     currency: price.currency!,
                     minimumFractionDigits: 0
-                  }).format((price?.unit_amount || 0) / 100);
+                  }).format((price?.unit_amount || 0) / 100)
                   return (
                     <div
                       key={product.id}
-                      className="flex flex-col rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900"
+                      className="flex flex-col divide-y divide-zinc-600 rounded-lg bg-zinc-900 shadow-sm"
                     >
-                      <div className="p-6 flex flex-col flex-grow">
-                        <h2 className="text-2xl font-semibold leading-6 text-white">
-                          {product.name}
-                        </h2>
-                        <p className="mt-4 text-zinc-100">
-                          {product.description}
-                        </p>
+                      <div className="flex flex-grow flex-col p-6">
+                        <h2 className="text-2xl font-semibold leading-6 text-white">{product.name}</h2>
+                        <p className="mt-4 text-zinc-100">{product.description}</p>
                         <p className="mt-8">
-                          <span className="text-5xl font-extrabold text-zinc-100">
-                            {priceString}
-                          </span>
-                          <span className="text-base font-medium text-zinc-100">
-                            /{billingInterval}
-                          </span>
+                          <span className="text-5xl font-extrabold text-zinc-100">{priceString}</span>
+                          <span className="text-base font-medium text-zinc-100">/{billingInterval}</span>
                         </p>
                         <Button
                           variant="slim"
                           type="button"
                           loading={priceIdLoading === price.id}
                           onClick={() => handleStripeCheckout(price)}
-                          className="gradient-button block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900"
+                          className="gradient-button mt-8 block w-full rounded-md py-2 text-center text-sm font-semibold text-white hover:bg-zinc-900"
                         >
                           Subscribe
                         </Button>
                       </div>
                     </div>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -245,5 +222,5 @@ export default function Pricing({ products }: { products: Product[] }) {
         }
       `}</style>
     </section>
-  );
+  )
 }

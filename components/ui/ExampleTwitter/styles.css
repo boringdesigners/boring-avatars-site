@@ -49,7 +49,7 @@
 }
 
 .twitter-wrapper header div > div:first-child {
-  background-color: var(--c-backgroundAlt);
+  background-color: var(--c-backgroundCode);
   padding: var(--sp-m);
   border-radius: 0.5rem;
   margin-bottom: var(--sp-s);

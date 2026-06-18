@@ -1,15 +1,11 @@
-import React from 'react';
-import { ColorDotProps } from './types';
-import './ColorDot.css';
+import React from 'react'
+import { ColorDotProps } from './types'
+import './ColorDot.css'
 
-export const ColorDot: React.FC<ColorDotProps> = ({
-  value,
-  onChange,
-  className = ''
-}) => {
+export const ColorDot: React.FC<ColorDotProps> = ({ value, onChange, className = '' }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value);
-  };
+    onChange?.(e.target.value)
+  }
 
   return (
     <input
@@ -19,5 +15,5 @@ export const ColorDot: React.FC<ColorDotProps> = ({
       className={`color-dot ${className}`}
       style={{ backgroundColor: value }}
     />
-  );
-};
+  )
+}

@@ -1,14 +1,15 @@
-import React from 'react';
-import { Button } from '@/components/ui/Button';
-import Avatar from 'boring-avatars';
-import './styles.css';
+import React from 'react'
+import { Button } from '@/components/ui/Button'
+import Avatar from 'boring-avatars'
+import './styles.css'
 
-const ExampleInstagram = ({ name, colors, variant, img }) => {
+/** @param {{ name: any; colors: any; variant: any; img: any; square?: boolean }} props */
+const ExampleInstagram = ({ name, colors, variant, img, square }) => {
   return (
     <div className="card">
       <div className="instagram-avatar-wrapper">
         <header>
-          <Avatar name={name} size="54" variant={variant} colors={colors} />
+          <Avatar name={name} size="54" variant={variant} colors={colors} square={square} />
           <div>
             <div className="instagram-data">
               <div>
@@ -31,7 +32,7 @@ const ExampleInstagram = ({ name, colors, variant, img }) => {
         <Button>Follow</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExampleInstagram;
+export default ExampleInstagram

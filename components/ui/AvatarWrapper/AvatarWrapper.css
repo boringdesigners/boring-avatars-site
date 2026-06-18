@@ -1,0 +1,52 @@
+.avatar-container {
+  display: grid;
+  font-size: 0.8rem;
+}
+
+.avatar-container:hover .button-section {
+  opacity: 1;
+  transition: 0.2s 0.1s;
+}
+
+.avatar-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-section {
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: 0.5s 0s;
+}
+
+.avatar-name {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: var(--sp-s);
+  font-weight: 600;
+}
+
+.avatar-input {
+  padding: var(--textbox);
+  font: inherit;
+  color: inherit;
+  border: 1px solid transparent;
+  transition: 0.5s;
+  width: 100%;
+  text-align: center;
+  border-radius: 100rem;
+  background: transparent;
+  margin-top: var(--sp-s);
+}
+
+.avatar-input:hover {
+  border-color: var(--c-fieldHover);
+  transition: 0.2s;
+}
+
+.avatar-input:focus {
+  border-color: var(--c-fieldFocus);
+  outline: none;
+}
