@@ -173,11 +173,9 @@ nav {
 .homeSidebar {
   width: calc(100% / 4);
   flex-shrink: 0;
-  overflow-y: auto;
   position: sticky;
   top: var(--sp-m);
   height: fit-content;
-  padding-bottom: var(--sp-l);
   opacity: 0;
   animation: homeEnter 0.4s ease-out 120ms forwards;
 
@@ -273,6 +271,79 @@ nav {
 .readmeMainCTA {
   display: flex;
   gap: var(--sp-s);
+}
+
+.sponsorCard {
+  position: relative;
+  margin-top: calc(var(--sp-xl) * 3);
+  padding: var(--sp-m);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  background-color: #F5F4F0;
+}
+
+@media (max-width: 1000px) {
+  .sponsorCard {
+    margin-top: calc(var(--sp-xl) * 1);
+  }
+}
+
+.sponsorCard-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #000;
+  border-radius: 0.35rem;
+  padding: 0.3rem;
+  text-decoration: none;
+}
+
+.sponsorCard-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+p.sponsorCard-label {
+  margin: 0 0 var(--sp-xs) 0;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background-color: #f6d0f6;
+  color: purple;
+}
+
+.sponsorCard-lead {
+  margin: 0 0 var(--sp-s);
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.sponsorCard-body {
+  margin: 0 0 var(--sp-m);
+  /* color: var(--c-body-primary); */
+  opacity: 0.6;
+  font-size: 0.75rem;
+}
+
+.sponsorCard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.sponsorCard-link:hover {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 
 .readmeBadge {

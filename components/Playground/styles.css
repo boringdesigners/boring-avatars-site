@@ -81,4 +81,5 @@
 
 .playground-examples .example-section {
   margin-top: calc(var(--sp-l) * -1);
+  margin-bottom: 0;
 }
