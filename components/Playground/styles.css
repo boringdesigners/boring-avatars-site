@@ -12,6 +12,7 @@
   padding: var(--sp-s);
   position: relative;
   margin: auto;
+  justify-content: center;
   /* background-color: white; */
   /* border-radius: 9999px; */
   /* margin-top: var(--sp-s); */
