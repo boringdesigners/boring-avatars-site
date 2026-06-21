@@ -4,6 +4,7 @@
   padding: 0;
   margin-bottom: var(--sp-xl);
   margin-top: var(--sp-l);
+  display: grid;
 }
 
 .example-code-title {
@@ -13,11 +14,23 @@
 }
 
 .example-code-card .avatars-grid {
-  padding: var(--sp-l);
-  gap: var(--sp-m);
   display: flex;
+  flex-wrap: nowrap;
+  gap: var(--sp-l);
+  padding: var(--sp-l);
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--sp-l);
+  scrollbar-width: thin;
   justify-content: space-between;
-  flex-wrap: wrap;
+}
+
+.example-code-card .avatars-grid > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .example-code-content .code-block {
