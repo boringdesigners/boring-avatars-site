@@ -1,0 +1,66 @@
+.copy-button {
+  display: inline-flex;
+}
+
+.copy-tooltip {
+  position: fixed;
+  z-index: 9999;
+  transform: translate(-50%, calc(-100% - 0.4rem));
+  white-space: nowrap;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.4rem;
+  background-color: var(--c-body);
+  color: var(--c-background);
+  font-size: 0.7rem;
+  line-height: 1.3;
+  pointer-events: none;
+  animation: copy-tooltip-in 0.15s ease both;
+}
+
+@keyframes copy-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 0.2rem));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 0.4rem));
+  }
+}
+
+.copy-button-icons {
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-button-icon {
+  position: absolute;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.copy-button-icon--check {
+  color: #10b981;
+  transform: scale(0);
+  opacity: 0;
+}
+
+.copy-button-icon--copy {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.copy-button[data-copied='true'] .copy-button-icon--check {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.copy-button[data-copied='true'] .copy-button-icon--copy {
+  transform: scale(0);
+  opacity: 0;
+}

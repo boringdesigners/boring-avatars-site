@@ -3,7 +3,6 @@
 import React from 'react'
 import {
   ExampleChat,
-  CodeBlock,
   ExampleProfile,
   ExampleSuggested,
   ExampleShared,
@@ -11,6 +10,7 @@ import {
   ExampleInstagram,
   ExampleTwitter
 } from '@/components/ui'
+import { AvatarCodeSnippet } from '@/components/ui/CodeBlock/AvatarCodeSnippet'
 import { AvatarWrapper } from '@/components/ui/AvatarWrapper/AvatarWrapper'
 import { exampleNames } from '@/components/ui/example-names'
 import './styles.css'
@@ -70,8 +70,6 @@ const Example: React.FC<ExampleProps> = ({
     '--color-2': colors[1] + '10'
   } as React.CSSProperties
 
-  const reactCode = `<Avatar colors={${JSON.stringify(colors)}} variant="${variant}"${square ? ' square' : ''} />`
-
   return (
     <section className="example-section">
       <div className="example-wrapper" style={style}>
@@ -83,7 +81,7 @@ const Example: React.FC<ExampleProps> = ({
             ))}
           </div>
           <div className="example-code-content">
-            <CodeBlock code={reactCode} language="react" />
+            <AvatarCodeSnippet colors={colors} variant={variant} square={square} />
           </div>
         </div>
         <div className="example-grid">
